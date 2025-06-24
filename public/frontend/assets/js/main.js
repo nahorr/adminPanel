@@ -28,20 +28,18 @@
       +'<div class="time-entry seconds"><span>%S</span> Seconds</div> '));
     });
 
-    /* Auto Close Responsive Navbar on Click
-    ========================================================*/
-    function close_toggle() {
-        if ($(window).width() <= 768) {
-            $('.navbar-collapse a').on('click', function () {
-                $('.navbar-collapse').collapse('hide');
-            });
-        }
-        else {
-            $('.navbar .navbar-inverse a').off('click');
-        }
-    }
-    close_toggle();
-    $(window).resize(close_toggle);
+    /*====================================
+    slick menu js
+    ======================================*/
+    var logo_path=$('.mobile-menu').data('logo');
+    $('#navbarCollapse').slicknav({
+        appendTo:'.mobile-menu',
+        removeClasses:false,
+        label:'',
+        closedSymbol:'<i class="lni-chevron-right"><i/>',
+        openedSymbol:'<i class="lni-chevron-down"><i/>',
+        brand:'<a href="index.html"><img src="'+logo_path+'" class="img-responsive" alt="logo"></a>'
+    });
 
       /* WOW Scroll Spy
     ========================================================*/
