@@ -44,38 +44,21 @@
                     Home
                   </a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Pages
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="about.html">About Us</a></li>
-                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-                    <li><a class="dropdown-item" href="pricing.html">Pricing Table</a></li>
-                    <li><a class="dropdown-item" href="sponsors.html">Sponsors</a></li>
-                    <li><a class="dropdown-item" href="single-post.html">Single Post</a></li>
-                  </ul>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="schedule.html">
-                    schedules
+                    About Us
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="speakers.html">
-                    Speakers
+                    Events
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="blog.html">
-                    Blog
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pricing.html">
-                    Buy Tickets
-                  </a>
-                </li>
+                    <a class="nav-link" href="speakers.html">
+                      Gallery
+                    </a>
+                  </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact.html">
                     Contact
@@ -85,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="mobile-menu" data-logo="assets/img/logo.png') }}"></div>
+        <div class="mobile-menu" data-logo="{{ asset('frontend/assets/img/logo.png') }}"></div>
       </nav>
       <!-- Navbar End -->
 
@@ -132,37 +115,97 @@
     </section>
     <!-- Count Bar End -->
 
-    <!-- About Section Start -->
-    <section id="about" class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-12 col-xs-12">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/about/img1.png') }}" alt="">
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 col-xs-12">
-            <div class="about-content">
-              <div>
-                <div class="about-text">
-                  <h2>About The Conference</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod ncididunt ametfh consectetur dolore magna aliqua. Ut enim ad minim veniam dolor sitame magnaelit ate consectetur adipisicing. Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod.</p>
+    <!-- Blog Section Start -->
+    <section id="blog" class="section-padding">
+        <div class="container">
+            <div class="row">
+            <div class="col-12">
+                <div class="section-title-header text-center">
+                <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Upcoming Events</h2>
+                <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
                 </div>
-                <ul class="stylish-list mb-3">
-                  <li><i class="lni-check-mark-circle"></i>We are providing different services</li>
-                  <li><i class="lni-check-mark-circle"></i>We are one of leading company</li>
-                  <li><i class="lni-check-mark-circle"></i>Profitability is the primary goal of all business</li>
-                  <li><i class="lni-check-mark-circle"></i>Learn how to grow your Business </li>
-                  <li><i class="lni-check-mark-circle"></i>Professional solutions for your business</li>
-                </ul>
-                <a class="btn btn-common" href="#">Read More</a>
-              </div>
             </div>
-          </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="blog-item">
+                <div class="blog-image">
+                    <a href="#">
+                    <img class="img-fluid" src="{{ asset('frontend/assets/img/blog/img-1.jpg') }}" alt="">
+                    </a>
+                </div>
+                <div class="descr">
+                    <div class="icon">
+                    <i class="lni-image"></i>
+                    </div>
+                    <h3 class="title">
+                    <a href="single-post.html">
+                        Learn Something New
+                    </a>
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
+                </div>
+                <div class="meta-tags">
+                    <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
+                    <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="blog-item">
+                <div class="blog-image">
+                    <a href="#">
+                    <img class="img-fluid" src="{{ asset('frontend/assets/img/blog/img-2.jpg') }}" alt="">
+                    </a>
+                </div>
+                <div class="descr">
+                    <div class="icon">
+                    <i class="lni-arrow-right"></i>
+                    </div>
+                    <h3 class="title">
+                    <a href="single-post.html">
+                        The Student's Meeting
+                    </a>
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
+                </div>
+                <div class="meta-tags">
+                    <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
+                    <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="blog-item">
+                <div class="blog-image">
+                    <a href="#">
+                    <img class="img-fluid" src="{{ asset('frontend/assets/img/blog/img-3.jpg') }}" alt="">
+                    </a>
+                </div>
+                <div class="descr">
+                    <div class="icon">
+                    <i class="lni-camera"></i>
+                    </div>
+                    <h3 class="title">
+                    <a href="single-post.html">
+                        The Meeting in the university
+                    </a>
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
+                </div>
+                <div class="meta-tags">
+                    <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
+                    <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
+                </div>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <a href="#" class="btn btn-common">View all Events</a>
+            </div>
+            </div>
         </div>
-      </div>
     </section>
-    <!-- About Section End -->
+    <!-- Blog Section End -->
 
     <!-- Video Section Start -->
     <div class="ready-to-play">
@@ -355,617 +398,6 @@
     </section>
     <!-- Counter Area End-->
 
-    <!-- Schedule Section Start -->
-    <section id="schedules" class="schedule section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title-header text-center">
-              <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Event Schedules</h2>
-              <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 mb-5 text-center">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="monday-tab" data-toggle="tab" href="#monday" role="tab" aria-controls="monday" aria-expanded="true">
-                  <div class="item-text">
-                    <h4>Day 01</h4>
-                    <h5>14 February 2020</h5>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="tuesday-tab" data-toggle="tab" href="#tuesday" role="tab" aria-controls="tuesday">
-                  <div class="item-text">
-                    <h4>Day 02</h4>
-                    <h5>15 February 2020</h5>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="wednesday-tab" data-toggle="tab" href="#wednesday" role="tab" aria-controls="wednesday">
-                  <div class="item-text">
-                    <h4>Day 03</h4>
-                    <h5>16 February 2020</h5>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="thursday-tab" data-toggle="tab" href="#thursday" role="tab" aria-controls="thursday">
-                  <div class="item-text">
-                    <h4>Day 04</h4>
-                    <h5>17 February 2020</h5>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-12">
-            <div class="schedule-area row wow fadeInDown" data-wow-delay="0.3s">
-              <div class="schedule-tab-content col-12 clearfix">
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">
-                    <div id="accordion">
-                      <div class="card">
-                        <div id="headingOne">
-                          <div class="schedule-slot-time">
-                            <span> 9.30 - 10.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-1.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingTwo">
-                          <div class="schedule-slot-time">
-                            <span> 10.30 - 11.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-2.jpg') }}" alt="">
-                            </div>
-                            <h4>15 Free Productive Design Tools</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingThree">
-                          <div class="schedule-slot-time">
-                            <span> 11.30 - 12.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-3.jpg') }}" alt="">
-                            </div>
-                            <h4>Getting Started With SketchApp</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
-                    <div id="accordion2">
-                      <div class="card">
-                        <div id="headingOne1">
-                          <div class="schedule-slot-time">
-                            <span> 1.30 - 2.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-2.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1" data-parent="#accordion2">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingTwo2">
-                          <div class="schedule-slot-time">
-                            <span> 9.30 - 10.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-1.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordion2">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
-                    <div id="accordion3">
-                      <div class="card">
-                        <div id="headingOne3">
-                          <div class="schedule-slot-time">
-                            <span> 10.30 - 11.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-1.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseOne3" class="collapse show" aria-labelledby="headingOne3" data-parent="#accordion3">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingTwo3">
-                          <div class="schedule-slot-time">
-                            <span> 11.30 - 12.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseTwo3" aria-expanded="false" aria-controls="collapseTwo3">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-2.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo3" data-parent="#accordion3">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingThree3">
-                          <div class="schedule-slot-time">
-                            <span> 1.30 - 2.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-3.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseThree3" class="collapse" aria-labelledby="headingThree3" data-parent="#accordion3">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
-                    <div id="accordion4">
-                      <div class="card">
-                        <div id="headingOne">
-                          <div class="schedule-slot-time">
-                            <span> 9.30 - 10.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-2.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseOne4" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion4">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingTwo">
-                          <div class="schedule-slot-time">
-                            <span> 10.30 - 11.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseTwo4" aria-expanded="false" aria-controls="collapseTwo4">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-1.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion4">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingThree4">
-                          <div class="schedule-slot-time">
-                            <span> 11.30 - 12.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-3.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseThree4" class="collapse" aria-labelledby="headingThree" data-parent="#accordion4">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
-                    <div id="accordion">
-                      <div class="card">
-                        <div id="headingOne">
-                          <div class="schedule-slot-time">
-                            <span> 9.30 - 10.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-2.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingTwo">
-                          <div class="schedule-slot-time">
-                            <span> 10.30 - 11.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-1.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div id="headingThree">
-                          <div class="schedule-slot-time">
-                            <span> 11.30 - 12.30 AM</span>
-                            Workshop
-                          </div>
-                          <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <div class="images-box">
-                              <img class="img-fluid" src="{{ asset('frontend/assets/img/speaker/speakers-3.jpg') }}" alt="">
-                            </div>
-                            <h4>Web Design Principles and Best Practices</h4>
-                            <h5 class="name">David Warner</h5>
-                          </div>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                          <div class="card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet minima dolores rerum maiores qui at commodi quas, reprehenderit eius consectetur quae magni molestias veniam, provident illum facere iure libero asperiores! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam earum nihil ex ipsa magni eligendi fugiat assumenda suscipit, accusantium, necessitatibus reiciendis odit sed, vero amet blanditiis?</p>
-                            <div class="location">
-                              <span>Location:</span> Hall 1 , Building A, Golden Street, Southafrica
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Schedule Section End -->
-
-    <!-- Team Section Start -->
-    <section id="team" class="section-padding text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title-header text-center">
-              <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Our Speakers</h2>
-              <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-bt">
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="0.2s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-01.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">JONATHON DOE</a></h3>
-                <p>Product Designer, Tesla</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="0.4s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-02.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Patric Green</a></h3>
-                <p>Front-end Developer</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="0.6s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-03.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Paul Kowalsy</a></h3>
-                <p>Lead Designer, TNW</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="0.8s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-04.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Jhon Doe</a></h3>
-                <p>Back-end Developer, ASUS</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="1s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-05.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Daryl Dixon</a></h3>
-                <p>Full-stack Developer, Google</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="1.2s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-06.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Chris Adams</a></h3>
-                <p>UI Designer, Apple</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="1.4s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-07.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Paul Kowalsy</a></h3>
-                <p>Lead Designer, TNW</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <!-- Team Item Starts -->
-            <div class="team-item wow fadeInUp" data-wow-delay="1.6s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('frontend/assets/img/team/team-08.jpg') }}" alt="">
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-google" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="lni-pinterest" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Jhon Doe</a></h3>
-                <p>Back-end Developer, ASUS</p>
-              </div>
-            </div>
-            <!-- Team Item Ends -->
-          </div>
-        </div>
-        <a href="speakers.html" class="btn btn-common mt-30 wow fadeInUp" data-wow-delay="1.9s">Meet with all speakers</a>
-      </div>
-    </section>
-    <!-- Team Section End -->
-
     <!-- Gallary Section Start -->
     <section id="gallery" class="section-padding">
       <div class="container-fluid">
@@ -1085,7 +517,7 @@
     <!-- Gallary Section End -->
 
     <!-- Event Slides Section Start -->
-    <section id="event-up" class="section-padding">
+    {{-- <section id="event-up" class="section-padding">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -1147,310 +579,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- Event Slides Section End -->
 
-    <!-- Ticket Pricing Area Start -->
-    <section id="pricing" class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title-header text-center">
-              <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Ticket Pricing</h2>
-              <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-xa-12 mb-3">
-            <div class="price-block-wrapper wow fadeInLeft" data-wow-delay="0.2s">
-              <div class="colmun-title">
-                <h5>Basic Pass</h5>
-              </div>
-              <div class="price">
-                <h2>$29</h2>
-                <span>Per Day</span>
-              </div>
-              <div class="pricing-list">
-                <ul>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Entrance</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Coffee Break</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Lunch on all days</span></li>
-                  <li><i class="lni-close"></i><span class="text">Access to all areas</span></li>
-                  <li><i class="lni-close"></i><span class="text">Certificate</span></li>
-                </ul>
-              </div>
-              <a href="#" class="btn btn-common">Buy Ticket</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-xa-12 mb-3">
-            <div class="price-block-wrapper active wow fadeInUp" data-wow-delay="0.3s">
-              <div class="colmun-title">
-                <h5>Standard Pass</h5>
-              </div>
-              <div class="price">
-                <h2>$40</h2>
-                <span>Per Day</span>
-              </div>
-              <div class="pricing-list">
-                <ul>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Entrance</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Coffee Break</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Lunch on all days</span></li>
-                  <li><i class="lni-close"></i><span class="text">Access to all areas</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Certificate</span></li>
-                </ul>
-              </div>
-              <a href="#" class="btn btn-common">Buy Ticket</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-xa-12 mb-3">
-            <div class="price-block-wrapper wow fadeInRight" data-wow-delay="0.4s">
-              <div class="colmun-title">
-                <h5>Premium Pass</h5>
-              </div>
-              <div class="price">
-                <h2>$68</h2>
-                <span>Per Day</span>
-              </div>
-              <div class="pricing-list">
-                <ul>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Entrance</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Coffee Break</span></li>
-                  <li><i class="lni-close"></i><span class="text">Lunch on all days</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Access to all areas</span></li>
-                  <li><i class="lni-check-mark-circle"></i><span class="text">Certificate</span></li>
-                </ul>
-              </div>
-              <a href="#" class="btn btn-common">Buy Ticket</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Ticket Pricing Area End -->
 
-    <!-- Blog Section Start -->
-    <section id="blog" class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title-header text-center">
-              <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Latest News</h2>
-              <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-xs-12">
-            <div class="blog-item">
-              <div class="blog-image">
-                <a href="#">
-                  <img class="img-fluid" src="{{ asset('frontend/assets/img/blog/img-1.jpg') }}" alt="">
-                </a>
-              </div>
-              <div class="descr">
-                <div class="icon">
-                  <i class="lni-image"></i>
-                </div>
-                <h3 class="title">
-                  <a href="single-post.html">
-                    Learn Something New
-                  </a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
-              </div>
-              <div class="meta-tags">
-                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
-                <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-xs-12">
-            <div class="blog-item">
-              <div class="blog-image">
-                <a href="#">
-                  <img class="img-fluid" src="{{ asset('frontend/assets/img/blog/img-2.jpg') }}" alt="">
-                </a>
-              </div>
-              <div class="descr">
-                <div class="icon">
-                  <i class="lni-arrow-right"></i>
-                </div>
-                <h3 class="title">
-                  <a href="single-post.html">
-                    The Student's Meeting
-                  </a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
-              </div>
-              <div class="meta-tags">
-                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
-                <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-xs-12">
-            <div class="blog-item">
-              <div class="blog-image">
-                <a href="#">
-                  <img class="img-fluid" src="{{ asset('frontend/assets/img/blog/img-3.jpg') }}" alt="">
-                </a>
-              </div>
-              <div class="descr">
-                <div class="icon">
-                  <i class="lni-camera"></i>
-                </div>
-                <h3 class="title">
-                  <a href="single-post.html">
-                    The Meeting in the university
-                  </a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
-              </div>
-              <div class="meta-tags">
-                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
-                <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 text-center">
-            <a href="#" class="btn btn-common">View all Blog</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Blog Section End -->
-
-    <!-- Sponsors Section Start -->
-    <section id="sponsors" class="section-padding">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title-header text-center">
-              <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Sponsors</h2>
-              <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-30 text-center wow fadeInDown" data-wow-delay="0.3s">
-          <div class="col-lg-12">
-            <div class="sponsors-logo text-center">
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-1.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-2.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-3.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-4.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-5.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-6.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-7.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-8.png') }}" alt=""></a>
-               <a href=""><img src="{{ asset('frontend/assets/img/sponsors/logo-9.png') }}" alt=""></a>
-            </div><!-- sponsors logo end-->
-         </div>
-        </div>
-      </div>
-    </section>
-    <!-- Sponsors Section End -->
-
-    <!-- Contact Us Section -->
-    <section id="contact-map" class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title-header text-center">
-              <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Contact Us</h2>
-              <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-8 col-md-12 col-xs-12">
-            <div class="container-form wow fadeInLeft" data-wow-delay="0.2s">
-              <div class="form-wrapper">
-                <form role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
-                  <div class="row">
-                    <div class="col-md-6 form-line">
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="email" placeholder="First Name" required data-error="Please enter your name">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 form-line">
-                      <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required data-error="Please enter your Email">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-12 form-line">
-                      <div class="form-group">
-                        <input type="tel" class="form-control" id="msg_subject" name="subject" placeholder="Subject" required data-error="Please enter your message subject">
-                        <div class="help-block with-errors"></div>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <textarea class="form-control" rows="4" id="message" name="message" required data-error="Write your message"></textarea>
-                      </div>
-                      <div class="form-submit">
-                        <button type="submit" class="btn btn-common" id="form-submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Contact Us Section End -->
-
-    <!-- Map Section Start -->
-    <section id="google-map-area">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <object style="border:0; height: 450px; width: 100%;" data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.15480778837!2d-77.44908382752939!3d38.953293865566366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6775cb22a9fa1341!2sThe+Firkin+%26+Fox!5e0!3m2!1sen!2sbd!4v1543773685573"></object>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Map Section End -->
-
-    <!-- Contact text Start -->
-    <section id="contact-text">
-      <div class="container">
-        <div class="row contact-wrapper">
-          <div class="col-lg-4 col-md-5 col-xs-12">
-            <ul>
-              <li>
-                <i class="lni-home"></i>
-              </li>
-              <li><span>Cesare Rosaroll, 118 80139 Eventine</li>
-            </ul>
-          </div>
-          <div class="col-lg-4 col-md-3 col-xs-12">
-            <ul>
-              <li>
-                <i class="lni-phone"></i>
-              </li>
-              <li><span>+789 123 456 79</span></li>
-            </ul>
-          </div>
-          <div class="col-lg-4 col-md-3 col-xs-12">
-            <ul>
-              <li>
-                <i class="lni-envelope"></i>
-              </li>
-              <li><span>Support@example.com</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Contact text End -->
 
     <footer>
       <div class="container">
