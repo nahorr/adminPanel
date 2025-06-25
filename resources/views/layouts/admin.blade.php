@@ -78,13 +78,19 @@
                         <ul class="submenu ">
                             
                             <li class="submenu-item  ">
-                                <a href="component-accordion.html" class="submenu-link">Accordion</a>
-                                
+                                <a href="component-accordion.html" class="submenu-link">About</a>
                             </li>
                             
                             <li class="submenu-item  ">
-                                <a href="component-alert.html" class="submenu-link">Alert</a>
-                                
+                                <a href="component-alert.html" class="submenu-link">Events</a>  
+                            </li>
+
+                            <li class="submenu-item  ">
+                                <a href="component-accordion.html" class="submenu-link">Gallery</a>
+                            </li>
+                            
+                            <li class="submenu-item  ">
+                                <a href="component-alert.html" class="submenu-link">Contact</a>  
                             </li>
                             
                         </ul>
