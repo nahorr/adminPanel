@@ -39,33 +39,34 @@
               <i class="lni-menu"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{ route('frontend.index') }}">
-                    Home
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('frontend.about.us') }}">
-                    About Us
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('frontend.events') }}">
-                    Events
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('frontend.gallery') }}">
-                      Gallery
-                    </a>
-                  </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('frontend.contact') }}">
-                    Contact
-                  </a>
-                </li>
-              </ul>
+                <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                    <li class="nav-item {{ Route::is('frontend.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.index') }}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Route::is('frontend.about.us') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.about.us') }}">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Route::is('frontend.events') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.events') }}">
+                            Events
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Route::is('frontend.gallery') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.gallery') }}">
+                            Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item {{ Route::is('frontend.contact') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('frontend.contact') }}">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+
             </div>
           </div>
         </div>
@@ -103,19 +104,23 @@
 
     @if (!Route::is('frontend.index'))
     <!-- Page Header Start other pages-->
+    @php
+        $routeName = str_replace('frontend.', '', Route::currentRouteName());
+        $routeTitle = ucwords(str_replace('.', ' ', $routeName));
+    @endphp
     <div class="page-header">
         <div class="container">
             <div class="row">
             <div class="col-12">
                 <div class="page-header-inner text-center">
-                <h1 class="page-title">
-                    About Us
-                </h1>
+                    <h1 class="page-title">
+                        {{ $routeTitle }}
+                    </h1>
                 <ul>
                     <li>
                         <a class="active" href="{{ route('frontend.index') }}">Home</a>
                     </li>
-                    <li>About</li>
+                    <li>{{ $routeTitle }}</li>
                 </ul>
                 </div>
             </div>
