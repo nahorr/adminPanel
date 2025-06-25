@@ -8,8 +8,12 @@ use App\Http\Controllers\Frontend\IndexController;
 
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
 
-    //Index page
+    //Front pages
     Route::get('/', [IndexController::class, 'index'])->name('index');
+    Route::get('/about-us', [IndexController::class, 'aboutUs'])->name('about.us');
+    Route::get('/events', [IndexController::class, 'events'])->name('events');
+    Route::get('/gallery', [IndexController::class, 'gallery'])->name('gallery');
+    Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 
 });
 //+++++++++++++++++++++++++Frontend Ends++++++++++++++++++++++++++++++++++++
