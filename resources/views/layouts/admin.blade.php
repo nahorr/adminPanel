@@ -100,28 +100,24 @@
                         <ul class="submenu ">
                             
                             <li class="submenu-item  ">
-                                <a href="layout-default.html" class="submenu-link">Default Layout</a>
-                                
+                                <a href="layout-default.html" class="submenu-link">Company Info</a>  
                             </li>
-                            
                             <li class="submenu-item  ">
-                                <a href="layout-vertical-1-column.html" class="submenu-link">1 Column</a>
-                                
+                                <a href="layout-default.html" class="submenu-link">Profile</a>  
                             </li>
-                            
-                            <li class="submenu-item  ">
-                                <a href="layout-vertical-navbar.html" class="submenu-link">Vertical Navbar</a>
-                                
-                            </li>
-                            
                         </ul>
                     </li>
                     <li
                         class="sidebar-item  ">
-                        <a href="table.html" class='sidebar-link'>
-                            <i class="bi bi-grid-1x2-fill"></i>
+                        <a href="{{ route('logout') }}" class='sidebar-link'
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            <i class="bi bi-box-arrow-right fs-5 fw-bold"></i>
                             <span>Sign Out</span>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                         
                     </li>
                     
