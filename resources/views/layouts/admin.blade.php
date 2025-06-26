@@ -78,7 +78,7 @@
                         <ul class="submenu ">
 
                             <li class="submenu-item  ">
-                                <a href="component-accordion.html" class="submenu-link">About</a>
+                                <a href="{{ route('admin.about.us.index') }}" class="submenu-link">About Us</a>
                             </li>
 
                             <li class="submenu-item  ">

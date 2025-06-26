@@ -24,6 +24,7 @@ Auth::routes();
 //+++++++++++++++++++++++++Backend Starts++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\CompanyInfoController;
+use App\Http\Controllers\Backend\AboutUsController;
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['auth','verified'], 'as' => 'admin.'], function () {
@@ -35,6 +36,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['a
     Route::post('/company/store', [CompanyInfoController::class, 'store'])->name('company.store');
     Route::put('/company/update/{id}', [CompanyInfoController::class, 'update'])->name('company.update');
     Route::delete('/company/delete/{id}', [CompanyInfoController::class, 'destroy'])->name('company.destroy');
+
+    //About Us
+    Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.index');
+    Route::post('/about-us/store', [AboutUsController::class, 'store'])->name('about.us.store');
+    Route::put('/about-us/update/{id}', [AboutUsController::class, 'update'])->name('about.us.update');
+    Route::delete('/about-us/delete/{id}', [AboutUsController::class, 'destroy'])->name('about.us.destroy');
 
 
 });
