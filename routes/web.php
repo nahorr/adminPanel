@@ -20,15 +20,19 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //+++++++++++++++++++++++++Backend Starts++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 use App\Http\Controllers\Backend\HomeController;
+use App\Http\Controllers\Backend\CompanyInfoController;
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['auth','verified'], 'as' => 'admin.'], function () {
 
     Route::get('/home', [HomeController::class, 'home'])->name('home');
+
+    //Company information
+    Route::get('/company', [CompanyInfoController::class, 'index'])->name('company.index');
+
 
 });
 
