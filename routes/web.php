@@ -32,6 +32,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['a
 
     //Company information
     Route::get('/company', [CompanyInfoController::class, 'index'])->name('company.index');
+    Route::post('/company/store', [CompanyInfoController::class, 'store'])->name('company.store');
+    Route::put('/company/update/{id}', [CompanyInfoController::class, 'update'])->name('company.update');
+    Route::delete('/company/delete/{id}', [CompanyInfoController::class, 'destroy'])->name('company.destroy');
 
 
 });

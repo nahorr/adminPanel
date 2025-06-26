@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CompanyInfo;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyInfoController extends Controller
 {
@@ -23,7 +24,7 @@ class CompanyInfoController extends Controller
      */
     public function create()
     {
-        return view('backend.company.create');
+        //
     }
 
     /**
@@ -31,6 +32,8 @@ class CompanyInfoController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'tagline' => 'nullable|string|max:255',
@@ -44,13 +47,7 @@ class CompanyInfoController extends Controller
             'state' => 'nullable|string',
             'country' => 'nullable|string',
             'postal_code' => 'nullable|string|max:10',
-            'facebook' => 'nullable|url',
-            'twitter' => 'nullable|url',
-            'linkedin' => 'nullable|url',
-            'instagram' => 'nullable|url',
-            'about' => 'nullable|string',
             'registration_number' => 'nullable|string',
-            'tax_id' => 'nullable|string',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -59,7 +56,7 @@ class CompanyInfoController extends Controller
 
         CompanyInfo::create($data);
 
-        return redirect()->route('companyinfo.index')->with('success', 'Company info created successfully.');
+        return redirect()->route('admin.company.index')->with('success', 'Company info created successfully.');
     }
 
     /**
@@ -67,7 +64,7 @@ class CompanyInfoController extends Controller
      */
     public function show(string $id)
     {
-        return view('backend.company.show', compact('companyinfo'));
+        //
     }
 
     /**
@@ -75,7 +72,7 @@ class CompanyInfoController extends Controller
      */
     public function edit(string $id)
     {
-        return view('backend.company.edit', compact('companyinfo'));
+        //
     }
 
     /**
@@ -83,6 +80,8 @@ class CompanyInfoController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $companyinfo = CompanyInfo::where('id', $id)->first();
+
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'tagline' => 'nullable|string|max:255',
@@ -96,13 +95,7 @@ class CompanyInfoController extends Controller
             'state' => 'nullable|string',
             'country' => 'nullable|string',
             'postal_code' => 'nullable|string|max:10',
-            'facebook' => 'nullable|url',
-            'twitter' => 'nullable|url',
-            'linkedin' => 'nullable|url',
-            'instagram' => 'nullable|url',
-            'about' => 'nullable|string',
             'registration_number' => 'nullable|string',
-            'tax_id' => 'nullable|string',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -115,7 +108,7 @@ class CompanyInfoController extends Controller
 
         $companyinfo->update($data);
 
-        return redirect()->route('companyinfo.index')->with('success', 'Company info updated successfully.');
+        return redirect()->route('admin.company.index')->with('success', 'Company info updated successfully.');
     }
 
     /**
@@ -123,11 +116,14 @@ class CompanyInfoController extends Controller
      */
     public function destroy(string $id)
     {
+        $companyinfo = CompanyInfo::where('id', $id)->first();
+
         if ($companyinfo->logo) {
             Storage::disk('public')->delete($companyinfo->logo);
         }
 
         $companyinfo->delete();
-        return redirect()->route('companyinfo.index')->with('success', 'Company info deleted successfully.');
+        
+        return redirect()->route('admin.company.index')->with('success', 'Company info deleted successfully.');
     }
 }
