@@ -8,6 +8,9 @@
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/compiled/svg/favicon.svg') }}" type="image/x-icon">
 
+    <link rel="stylesheet" href="{{ asset('backend/assets/extensions/simple-datatables/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/table-datatable.css') }}">
+
     <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/iconly.css') }}">
@@ -61,7 +64,7 @@
                 <ul class="menu">
                     <li
                         class="sidebar-item active ">
-                        <a href="index.html" class='sidebar-link'>
+                        <a href="{{ route('admin.home') }}" class='sidebar-link'>
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
                         </a>
@@ -82,15 +85,19 @@
                             </li>
 
                             <li class="submenu-item  ">
-                                <a href="component-alert.html" class="submenu-link">Events</a>
+                                <a href="{{ route('admin.events.index') }}" class="submenu-link">Events</a>
                             </li>
 
                             <li class="submenu-item  ">
-                                <a href="component-accordion.html" class="submenu-link">Gallery</a>
+                                <a href="{{ route('admin.gallery.index') }}" class="submenu-link">Gallery</a>
                             </li>
 
                             <li class="submenu-item  ">
                                 <a href="component-alert.html" class="submenu-link">Contact</a>
+                            </li>
+
+                            <li class="submenu-item  ">
+                                <a href="component-alert.html" class="submenu-link">Sevices</a>
                             </li>
 
                         </ul>
@@ -160,6 +167,9 @@
     <!-- Need: Apexcharts -->
     <script src="{{ asset('backend/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('backend/assets/static/js/pages/dashboard.js') }}"></script>
+
+    <script src="{{ asset('backend/assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
+    <script src="{{ asset('backend/assets/static/js/pages/simple-datatables.js') }}"></script>
 
 </body>
 

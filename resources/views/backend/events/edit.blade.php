@@ -31,59 +31,100 @@
                 <div class="card-content">
                     <div class="card-body">
 
-                        <form action="{{ $about ? route('admin.about.us.update', $about->id) : route('admin.about.us.store') }}"
+                        <form action="{{ route('admin.event.update', $event->id) }}"
                             method="POST"
                             enctype="multipart/form-data"
                             class="form form-horizontal">
                           @csrf
-                          @if($about)
-                              @method('PUT')
-                          @endif
+                          @method('PUT')
                       
                           <div class="form-body">
                               <div class="row">
                       
                                   <div class="col-md-4">
-                                      <label for="title">Page Title</label>
+                                      <label for="title">Event Title</label>
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="text" id="title" class="form-control" name="title"
-                                             value="{{ old('title', $about->title ?? '') }}" required>
+                                             value="{{ old('title', $event->title) }}" required>
                                   </div>
                       
                                   <div class="col-md-4">
-                                      <label for="mission">Mission</label>
+                                      <label for="organizer">Organizer</label>
                                   </div>
                                   <div class="col-md-8 form-group">
-                                      <textarea id="mission" class="form-control" name="mission">{{ old('mission', $about->mission ?? '') }}</textarea>
+                                      <input type="text" id="organizer" class="form-control" name="organizer"
+                                             value="{{ old('organizer', $event->organizer) }}">
                                   </div>
                       
                                   <div class="col-md-4">
-                                      <label for="vision">Vision</label>
+                                      <label for="event_type">Event Type</label>
                                   </div>
                                   <div class="col-md-8 form-group">
-                                      <textarea id="vision" class="form-control" name="vision">{{ old('vision', $about->vision ?? '') }}</textarea>
+                                      <select name="event_type" id="event_type" class="form-control">
+                                          <option value="">Select Type</option>
+                                          <option value="In-person" {{ old('event_type', $event->event_type) === 'In-person' ? 'selected' : '' }}>In-person</option>
+                                          <option value="Online" {{ old('event_type', $event->event_type) === 'Online' ? 'selected' : '' }}>Online</option>
+                                          <option value="Hybrid" {{ old('event_type', $event->event_type) === 'Hybrid' ? 'selected' : '' }}>Hybrid</option>
+                                      </select>
                                   </div>
                       
                                   <div class="col-md-4">
-                                      <label for="values">Core Values</label>
+                                      <label for="location">Location</label>
                                   </div>
                                   <div class="col-md-8 form-group">
-                                      <textarea id="values" class="form-control" name="values">{{ old('values', $about->values ?? '') }}</textarea>
+                                      <input type="text" id="location" class="form-control" name="location"
+                                             value="{{ old('location', $event->location) }}">
                                   </div>
                       
                                   <div class="col-md-4">
-                                      <label for="history">History</label>
+                                      <label for="start_time">Start Time</label>
                                   </div>
                                   <div class="col-md-8 form-group">
-                                      <textarea id="history" class="form-control" name="history">{{ old('history', $about->history ?? '') }}</textarea>
+                                      <input type="datetime-local" id="start_time" class="form-control" name="start_time"
+                                             value="{{ old('start_time', \Carbon\Carbon::parse($event->start_time)->format('Y-m-d\TH:i')) }}" required>
                                   </div>
                       
                                   <div class="col-md-4">
-                                      <label for="content">Page Content</label>
+                                      <label for="end_time">End Time</label>
                                   </div>
                                   <div class="col-md-8 form-group">
-                                      <textarea id="content" class="form-control" name="content" rows="6">{{ old('content', $about->content ?? '') }}</textarea>
+                                      <input type="datetime-local" id="end_time" class="form-control" name="end_time"
+                                             value="{{ old('end_time', $event->end_time ? \Carbon\Carbon::parse($event->end_time)->format('Y-m-d\TH:i') : '') }}">
+                                  </div>
+                      
+                                  <div class="col-md-4">
+                                      <label for="time_zone">Time Zone</label>
+                                  </div>
+                                  <div class="col-md-8 form-group">
+                                      <input type="text" id="time_zone" class="form-control" name="time_zone"
+                                             value="{{ old('time_zone', $event->time_zone) }}">
+                                  </div>
+                      
+                                  <div class="col-md-4">
+                                      <label for="capacity">Capacity</label>
+                                  </div>
+                                  <div class="col-md-8 form-group">
+                                      <input type="number" id="capacity" class="form-control" name="capacity"
+                                             value="{{ old('capacity', $event->capacity) }}">
+                                  </div>
+                      
+                                  <div class="col-md-4">
+                                      <label for="is_free">Is Free?</label>
+                                  </div>
+                                  <div class="col-md-8 form-group">
+                                      <select name="is_free" id="is_free" class="form-control">
+                                          <option value="1" {{ old('is_free', $event->is_free) == 1 ? 'selected' : '' }}>Yes</option>
+                                          <option value="0" {{ old('is_free', $event->is_free) == 0 ? 'selected' : '' }}>No</option>
+                                      </select>
+                                  </div>
+                      
+                                  <div class="col-md-4">
+                                      <label for="ticket_price">Ticket Price (if not free)</label>
+                                  </div>
+                                  <div class="col-md-8 form-group">
+                                      <input type="number" step="0.01" id="ticket_price" class="form-control" name="ticket_price"
+                                             value="{{ old('ticket_price', $event->ticket_price) }}">
                                   </div>
                       
                                   <div class="col-md-4">
@@ -91,49 +132,33 @@
                                   </div>
                                   <div class="col-md-8 form-group">
                                       <input type="file" id="banner_image" class="form-control" name="banner_image">
-                                      @if(!empty($about->banner_image))
-                                          <img src="{{ asset('storage/' . $about->banner_image) }}" style="max-height: 80px; margin-top: 10px;">
+                                      @if(!empty($event->banner_image))
+                                          <img src="{{ asset('storage/' . $event->banner_image) }}" style="max-height: 80px; margin-top: 10px;">
                                       @endif
                                   </div>
                       
                                   <div class="col-md-4">
-                                      <label for="about_image">About Image</label>
+                                      <label for="description">Description</label>
                                   </div>
                                   <div class="col-md-8 form-group">
-                                      <input type="file" id="about_image" class="form-control" name="about_image">
-                                      @if(!empty($about->about_image))
-                                          <img src="{{ asset('storage/' . $about->about_image) }}" style="max-height: 80px; margin-top: 10px;">
-                                      @endif
-                                  </div>
-                      
-                                  <div class="col-md-4">
-                                      <label for="team_images">Team Images (multiple)</label>
-                                  </div>
-                                  <div class="col-md-8 form-group">
-                                      <input type="file" id="team_images" class="form-control" name="team_images[]" multiple>
-                                      @if(!empty($about->team_images))
-                                          @foreach(json_decode($about->team_images, true) as $img)
-                                              <img src="{{ asset('storage/' . $img) }}" style="height: 60px; margin: 4px;">
-                                          @endforeach
-                                      @endif
+                                      <textarea id="description" class="form-control" name="description" rows="5">{{ old('description', $event->description) }}</textarea>
                                   </div>
                       
                                   <div class="col-sm-12 d-flex justify-content-end">
-                                      <button type="submit" class="btn btn-primary me-1 mb-1">
-                                          {{ $about ? 'Update' : 'Submit' }}
-                                      </button>
+                                      <button type="submit" class="btn btn-primary me-1 mb-1">Update Event</button>
                                       <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                   </div>
                       
                               </div>
                           </div>
-                        </form>
+                      </form>
+                      
 
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-12">
+        {{-- <div class="col-md-4 col-12">
             <div class="card">
                 <div class="card-header text-center">
                     <h4 class="card-title mb-0">{{ $company ? $company->name:"Add Your Comapny Info" }}</h4>
@@ -158,7 +183,7 @@
                 </div>
                 
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 <!-- // Basic Horizontal form layout section end -->
