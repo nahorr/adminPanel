@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li class="nav-item {{ Route::is('frontend.contact') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('frontend.contact') }}">
+                        <a class="nav-link" href="{{ route('frontend.contact.index') }}">
                             Contact
                         </a>
                     </li>

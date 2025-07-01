@@ -76,13 +76,14 @@ class GalleryController extends Controller
     }
 
 
-    public function destroy(Gallery $gallery)
+    public function destroy($id)
     {
+        $gallery = Gallery::where('id',$id)->first(); 
         Storage::disk('public')->delete($gallery->image_path);
         $gallery->delete();
+
         return back()->with('success', 'Image deleted.');
     }
 
-    // Optional: implement edit/update if needed
 }
 

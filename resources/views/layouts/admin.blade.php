@@ -11,9 +11,16 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/extensions/simple-datatables/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/table-datatable.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('backend/assets/extensions/summernote/summernote-lite.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/form-editor-summernote.css') }}">
+
     <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/iconly.css') }}">
+
+    <!-- Optional searchable icon picker plugin here if needed -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    
 </head>
 
 <body>
@@ -93,11 +100,11 @@
                             </li>
 
                             <li class="submenu-item  ">
-                                <a href="component-alert.html" class="submenu-link">Contact</a>
+                                <a href="{{ route('admin.contacts.index') }}" class="submenu-link">Contact</a>
                             </li>
 
                             <li class="submenu-item  ">
-                                <a href="component-alert.html" class="submenu-link">Sevices</a>
+                                <a href="{{ route('admin.services.index') }}" class="submenu-link">Sevices</a>
                             </li>
 
                         </ul>
@@ -116,7 +123,7 @@
                                 <a href="{{ route('admin.company.index') }}" class="submenu-link">Company Info</a>
                             </li>
                             <li class="submenu-item  ">
-                                <a href="layout-default.html" class="submenu-link">Socials</a>
+                                <a href="{{ route('admin.socials.index') }}" class="submenu-link">Socials</a>
                             </li>
                         </ul>
                     </li>
@@ -170,6 +177,11 @@
 
     <script src="{{ asset('backend/assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
     <script src="{{ asset('backend/assets/static/js/pages/simple-datatables.js') }}"></script>
+
+    <script src="{{ asset('backend/assets/extensions/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/extensions/summernote/summernote-lite.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/static/js/pages/summernote.js') }}"></script>
+
 
 </body>
 

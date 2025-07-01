@@ -75,9 +75,11 @@
                     </div>
                     <div class="carousel-inner">
                         @foreach($gallery as $index => $item)
-                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" data-gallery-id="{{ $item->id }}">
                                 <img class="d-block w-100" src="{{ asset('storage/' . $item->image_path) }}">
-                                <div class="text-end mt-2">
+
+                                <div class="d-flex justify-content-end gap-2 mt-2">
+                                    <!-- Edit Button -->
                                     <button type="button"
                                             class="btn btn-sm btn-outline-primary"
                                             data-bs-toggle="modal"
@@ -85,9 +87,22 @@
                                             onclick="event.stopPropagation()">
                                         <i class="bi bi-pencil-square"></i> Edit
                                     </button>
+
+                                    <!-- Delete Button -->
+                                    <form action="{{ route('admin.gallery.destroy', $item->id) }}"
+                                        method="POST"
+                                        onsubmit="return confirm('Are you sure you want to delete this image?')"
+                                        onclick="event.stopPropagation();">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                                            <i class="bi bi-trash"></i> Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         @endforeach
+
                     </div>
                     {{-- <a class="carousel-control-prev" href="#Gallerycarousel" role="button" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -26,37 +26,65 @@
         <div class="col-lg-8 col-md-12 col-xs-12">
           <div class="container-form wow fadeInLeft" data-wow-delay="0.2s">
             <div class="form-wrapper">
-              <form role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
+              <form action="{{ route('frontend.contact.store') }}" method="POST" role="form">
+                @csrf
                 <div class="row">
-                  <div class="col-md-6 form-line">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="name" name="email" placeholder="First Name" required data-error="Please enter your name">
-                      <div class="help-block with-errors"></div>
+                    <!-- Name -->
+                    <div class="col-md-6 form-line">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name"
+                                   placeholder="Full Name" value="{{ old('name') }}" required
+                                   data-error="Please enter your name">
+                            @error('name')
+                                <div class="help-block text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-6 form-line">
-                    <div class="form-group">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required data-error="Please enter your Email">
-                      <div class="help-block with-errors"></div>
+            
+                    <!-- Email -->
+                    <div class="col-md-6 form-line">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Email" value="{{ old('email') }}" required
+                                   data-error="Please enter your Email">
+                            @error('email')
+                                <div class="help-block text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-12 form-line">
-                    <div class="form-group">
-                      <input type="tel" class="form-control" id="msg_subject" name="subject" placeholder="Subject" required data-error="Please enter your message subject">
-                      <div class="help-block with-errors"></div>
+            
+                    <!-- Subject -->
+                    <div class="col-md-12 form-line">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="msg_subject" name="subject"
+                                   placeholder="Subject" value="{{ old('subject') }}" required
+                                   data-error="Please enter your message subject">
+                            @error('subject')
+                                <div class="help-block text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <textarea class="form-control" rows="4" id="message" name="message" required data-error="Write your message"></textarea>
+            
+                    <!-- Message -->
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" id="message" name="message"
+                                      required data-error="Write your message">{{ old('message') }}</textarea>
+                            @error('message')
+                                <div class="help-block text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+            
+                        <!-- Submit Button -->
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-common" id="form-submit">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-submit">
-                      <button type="submit" class="btn btn-common" id="form-submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
-                      <div id="msgSubmit" class="h3 text-center hidden"></div>
-                    </div>
-                  </div>
                 </div>
-              </form>
+            </form>
+            
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 //+++++++++++++++++++++++++Frontend Starts++++++++++++++++++++++++++++++++++
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\ContactController;
 
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
 
@@ -13,7 +14,10 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     Route::get('/about-us', [IndexController::class, 'aboutUs'])->name('about.us');
     Route::get('/events', [IndexController::class, 'events'])->name('events');
     Route::get('/gallery', [IndexController::class, 'gallery'])->name('gallery');
-    Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
+    
+    //Contact
+    Route::get('/contact', [ContactController::class, 'contact'])->name('contact.index');
+    Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 
 });
 //+++++++++++++++++++++++++Frontend Ends++++++++++++++++++++++++++++++++++++
@@ -27,6 +31,9 @@ use App\Http\Controllers\Backend\CompanyInfoController;
 use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\EventController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SocialController;
+use App\Http\Controllers\Backend\ContactController as AdminContactController;
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['auth','verified'], 'as' => 'admin.'], function () {
 
@@ -55,9 +62,27 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['a
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
     Route::get('gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
-    // Route::get('gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
     Route::put('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
-    // Route::delete('/company/delete/{id}', [EventController::class, 'destroy'])->name('event.destroy');
+    Route::delete('/gallary/delete/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+
+    // Services
+    Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+    Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+    Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');
+    Route::get('/services/edit/{id}', [ServiceController::class, 'edit'])->name('services.edit'); // optional
+    Route::put('/services/update/{id}', [ServiceController::class, 'update'])->name('services.update');
+    Route::delete('/services/delete/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
+    // Socials
+    Route::get('/socials', [SocialController::class, 'index'])->name('socials.index');
+    Route::get('/socials/create', [SocialController::class, 'create'])->name('socials.create');
+    Route::post('/socials/store', [SocialController::class, 'store'])->name('socials.store');
+    Route::get('/socials/edit/{id}', [SocialController::class, 'edit'])->name('socials.edit'); // optional
+    Route::put('/socials/update/{id}', [SocialController::class, 'update'])->name('socials.update');
+    Route::delete('/socials/delete/{id}', [SocialController::class, 'destroy'])->name('socials.destroy');
+
+    //Contact us
+    Route::get('/contacts', [AdminContactController::class, 'index'])->name('contacts.index');
 
 
 });

@@ -24,9 +24,4 @@ class IndexController extends Controller
     {
         return view('frontend.gallery');
     }
-
-    public function contact()
-    {
-        return view('frontend.contact');
-    }
 }
