@@ -18,12 +18,16 @@
         <div class="col-12">
           <div class="section-title-header text-center">
             <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Contact Us</h2>
-            <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
+            <p class="wow fadeInDown" data-wow-delay="0.2s">
+                Have questions or need support? We're here to help. Reach out to us using the form below and our team will get back to you promptly.
+            </p>
+          
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12 col-xs-12">
+          @include('alert-messages')
           <div class="container-form wow fadeInLeft" data-wow-delay="0.2s">
             <div class="form-wrapper">
               <form action="{{ route('frontend.contact.store') }}" method="POST" role="form">
@@ -98,7 +102,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <object style="border:0; height: 450px; width: 100%;" data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.15480778837!2d-77.44908382752939!3d38.953293865566366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6775cb22a9fa1341!2sThe+Firkin+%26+Fox!5e0!3m2!1sen!2sbd!4v1543773685573"></object>
+          <object style="border:0; height: 450px; width: 100%;" 
+          data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5017.36875793561!2d-114.08553382340831!3d51.04044984470811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716fe006a87043%3A0xb45520a495bf2332!2s924%2014%20Ave%20SW%2C%20Calgary%2C%20AB%20T2R%200N7!5e0!3m2!1sen!2sca!4v1751391465169!5m2!1sen!2sca"></object>
         </div>
       </div>
     </div>
@@ -114,7 +119,7 @@
             <li>
               <i class="lni-home"></i>
             </li>
-            <li><span>Cesare Rosaroll, 118 80139 Eventine</li>
+            <li><span>{{ $company->name }}, {{ $company->address }}</li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-3 col-xs-12">
@@ -122,7 +127,7 @@
             <li>
               <i class="lni-phone"></i>
             </li>
-            <li><span>+789 123 456 79</span></li>
+            <li><span>{{ $company->phone }}</span></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-3 col-xs-12">
@@ -130,7 +135,7 @@
             <li>
               <i class="lni-envelope"></i>
             </li>
-            <li><span>Support@example.com</span></li>
+            <li><span>{{ $company->email }}</span></li>
           </ul>
         </div>
       </div>

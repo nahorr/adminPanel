@@ -162,14 +162,6 @@
                               </div>
                           </div>
                       </form>
-                      
-                        @if ($company)
-                            <form action="{{ route('admin.company.destroy', $company->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this company?');" class="ms-1">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger mb-1">Delete</button>
-                            </form>
-                        @endif
 
                     </div>
                 </div>

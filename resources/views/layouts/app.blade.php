@@ -51,7 +51,7 @@
                         </a>
                     </li>
                     <li class="nav-item {{ Route::is('frontend.events') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('frontend.events') }}">
+                        <a class="nav-link" href="{{ route('frontend.events.index') }}">
                             Events
                         </a>
                     </li>
@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li class="nav-item {{ Route::is('frontend.contact') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('frontend.contact.index') }}">
+                        <a class="nav-link" href="{{ route('frontend.contact') }}">
                             Contact
                         </a>
                     </li>
@@ -85,13 +85,23 @@
                 <div class="icon">
                   <i class="lni-mic"></i>
                 </div>
-                <p class="banner-info">15, Oct 2020 - Maria Hall, NY, United states</p>
-                <h2 class="head-title">Developers Conference</h2>
-                <p class="banner-desc">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nobis nesciunt atque perferendis, ipsa doloremque deserunt cum qui.</p>
-                <div class="banner-btn">
-                  <a href="#" class="btn btn-common">Get Ticket</a>
-                </div>
+                @if($nextEvent)
+                  <p class="banner-info">
+                      {{ \Carbon\Carbon::parse($nextEvent->start_time)->format('d, M Y') }}
+                      -
+                      {{ $nextEvent->location }}
+                  </p>
+                  <h2 class="head-title">{{ $nextEvent->title }}</h2>
+                  <p class="banner-desc">
+                      {{ Str::limit($nextEvent->description, 180) }}
+                  </p>
+                  <div class="banner-btn">
+                      <a href="#" class="btn btn-common">Register</a>
+                  </div>
+                @else
+                    <p class="banner-info">No upcoming events at the moment.</p>
+                @endif
+
               </div>
             </div>
           </div>
@@ -137,28 +147,43 @@
         <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12 col-xs-12">
             <div class="subscribe-inner wow fadeInDown" data-wow-delay="0.3s">
-              <h2 class="subscribe-title">To Get Nearly Updates</h2>
-              <form class="text-center form-inline">
-                <input class="mb-20 form-control" name="email" placeholder="Enter Your Email Here">
+              <h2 class="subscribe-title">Subscribe</h2>
+              
+              @if(session('success'))
+                <div class="alert alert-success text-center">{{ session('success') }}</div>
+              @endif
+
+              <form class="text-center form-inline" method="POST" action="{{ route('frontend.subscribe.store') }}">
+                @csrf
+                <input class="mb-20 form-control" type="email" name="email" placeholder="Enter Your Email Here" required>
+                
                 <button type="submit" class="btn btn-common sub-btn" data-style="zoom-in" data-spinner-size="30" name="submit" id="submit">
                   <span class="ladda-label"><i class="lni-check-box"></i> Subscribe</span>
                 </button>
               </form>
             </div>
+
             <div class="footer-logo">
-              <img src="{{ asset('frontend/assets/img/logo.png') }}" alt="">
-            </div>
+              @if(!empty($company?->logo))
+                  <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->site_name ?? 'Logo' }}">
+              @else
+                  <img src="{{ asset('frontend/assets/img/logo.png') }}" alt="Default Logo">
+              @endif
+          </div>
             <div class="social-icons-footer">
               <ul>
-                <li class="facebook"><a target="_blank" href="3"><i class="lni-facebook-filled"></i></a></li>
-                <li class="twitter"><a target="_blank" href="3"><i class="lni-twitter-filled"></i></a></li>
-                <li class="linkedin"><a target="_blank" href="3"><i class="lni-linkedin-original"></i></a></li>
-                <li class="google"><a target="_blank" href="3"><i class="lni-google"></i></a></li>
-                <li class="pinterest"><a target="_blank" href="3"><i class="lni-pinterest"></i></a></li>
+                @foreach ($socialLinks as $socialLink)
+                  <li class="{{ $socialLink->platform }}">
+                    <a target="_blank" href="{{ $socialLink->url }}">
+                      <i class="lni-facebook-filled"></i>
+                    </a>
+                  </li>
+                @endforeach
+                
               </ul>
             </div>
             <div class="site-info">
-              <p>Designed and Developed by <a href="http://uideck.com" rel="nofollow">UIdeck</a></p>
+              <p>By<a href="https://nahorr.com" rel="nofollow">Nahorr Analytics and Software Solutions</a></p>
             </div>
           </div>
         </div>
@@ -188,6 +213,9 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="{{ asset('frontend/assets/js/jquery-min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
@@ -203,6 +231,21 @@
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/form-validator.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/contact-form-script.min.js') }}"></script>
+
+    @if($nextEvent)
+    <script>
+      jQuery(document).ready(function () {
+        jQuery('#clock').countdown("{{ \Carbon\Carbon::parse($nextEvent->start_time)->format('Y/m/d H:i') }}", function (event) {
+          jQuery(this).html(event.strftime(
+            '<div class="time-entry days"><span>%-D</span> <b>:</b> Days</div> ' +
+            '<div class="time-entry hours"><span>%H</span> <b>:</b> Hours</div> ' +
+            '<div class="time-entry minutes"><span>%M</span> <b>:</b> Minutes</div> ' +
+            '<div class="time-entry seconds"><span>%S</span> Seconds</div>'
+          ));
+        });
+      });
+    </script>
+    @endif
 
   </body>
 </html>

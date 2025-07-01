@@ -6,18 +6,28 @@ use Illuminate\Support\Facades\Auth;
 //+++++++++++++++++++++++++Frontend Starts++++++++++++++++++++++++++++++++++
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\SubscriptionController;
+use App\Http\Controllers\Frontend\EventController;
 
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
 
     //Front pages
     Route::get('/', [IndexController::class, 'index'])->name('index');
     Route::get('/about-us', [IndexController::class, 'aboutUs'])->name('about.us');
-    Route::get('/events', [IndexController::class, 'events'])->name('events');
     Route::get('/gallery', [IndexController::class, 'gallery'])->name('gallery');
     
     //Contact
-    Route::get('/contact', [ContactController::class, 'contact'])->name('contact.index');
+    Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
     Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
+    //Subscription
+    Route::post('/subscribe/store', [SubscriptionController::class, 'store'])->name('subscribe.store');
+
+    //Events
+    Route::get('/events/index', [EventController::class, 'index'])->name('events.index');
+    Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+    Route::post('/events/{event}/register', [EventController::class, 'register'])->name('events.register');
+
 
 });
 //+++++++++++++++++++++++++Frontend Ends++++++++++++++++++++++++++++++++++++
@@ -29,7 +39,7 @@ Auth::routes();
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\CompanyInfoController;
 use App\Http\Controllers\Backend\AboutUsController;
-use App\Http\Controllers\Backend\EventController;
+use App\Http\Controllers\Backend\EventController as AdminEventController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SocialController;
@@ -51,12 +61,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['a
     Route::put('/about-us/update/{id}', [AboutUsController::class, 'update'])->name('about.us.update');
 
     //Events
-    Route::get('/events', [EventController::class, 'index'])->name('events.index');
-    Route::get('event/create', [EventController::class, 'create'])->name('event.create');
-    Route::post('/event/store', [EventController::class, 'store'])->name('event.store');
-    Route::get('event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
-    Route::put('/event/update/{id}', [EventController::class, 'update'])->name('event.update');
-    Route::delete('/company/delete/{id}', [EventController::class, 'destroy'])->name('event.destroy');
+    Route::get('/events', [AdminEventController::class, 'index'])->name('events.index');
+    Route::get('event/create', [AdminEventController::class, 'create'])->name('event.create');
+    Route::post('/event/store', [AdminEventController::class, 'store'])->name('event.store');
+    Route::get('event/edit/{id}', [AdminEventController::class, 'edit'])->name('event.edit');
+    Route::put('/event/update/{id}', [AdminEventController::class, 'update'])->name('event.update');
+    Route::delete('/company/delete/{id}', [AdminEventController::class, 'destroy'])->name('event.destroy');
 
     //Gallary
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
