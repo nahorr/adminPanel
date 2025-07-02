@@ -119,7 +119,7 @@
             <li>
               <i class="lni-home"></i>
             </li>
-            <li><span>{{ $company->name }}, {{ $company->address }}</li>
+            <li><span>{{ $company->name ?? 'My Company'}}, {{ $company->address ?? 'Add address' }}</li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-3 col-xs-12">
@@ -127,7 +127,7 @@
             <li>
               <i class="lni-phone"></i>
             </li>
-            <li><span>{{ $company->phone }}</span></li>
+            <li><span>{{ $company->phone ?? 'Add Phone'}}</span></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-3 col-xs-12">
@@ -135,7 +135,7 @@
             <li>
               <i class="lni-envelope"></i>
             </li>
-            <li><span>{{ $company->email }}</span></li>
+            <li><span>{{ $company->email ?? 'Add email'}}</span></li>
           </ul>
         </div>
       </div>

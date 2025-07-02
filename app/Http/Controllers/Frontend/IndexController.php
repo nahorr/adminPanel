@@ -23,9 +23,13 @@ class IndexController extends Controller
     {
         $about_us = AboutUs::first();
 
-        $teamMembers = collect(json_decode($about_us->team_images, true));
+        $teamMembers = collect();
 
-        return view('frontend.about-us', compact('about_us','teamMembers'));
+        if ($about_us && $about_us->team_images) {
+            $teamMembers = collect(json_decode($about_us->team_images, true));
+        }
+
+        return view('frontend.about-us', compact('about_us', 'teamMembers'));
     }
 
     public function gallery()

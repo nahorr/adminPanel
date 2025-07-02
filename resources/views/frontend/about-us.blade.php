@@ -19,9 +19,9 @@
           <div class="about-content">
             <div>
               <div class="about-text">
-                <h2>Welcome to {{ $company->name }}</h2>
+                <h2>Welcome to {{ $company->name ?? 'Our Company' }}</h2>
                 <p>
-                  {{ $about_us->content }}
+                  {{ $about_us->content ?? 'No Content Yet'}}
                 </p>
               </div>
               <ul class="stylish-list mb-3">

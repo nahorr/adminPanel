@@ -190,7 +190,7 @@
               </ul>
             </div>
             <div class="site-info">
-              <p>By<a href="https://nahorr.com" rel="nofollow">Nahorr Analytics and Software Solutions</a></p>
+              <p>By <a href="#" rel="nofollow">Nahorr Analytics and Software Solutions</a></p>
             </div>
           </div>
         </div>
