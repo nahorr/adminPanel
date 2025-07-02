@@ -25,8 +25,8 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
 
     //Events
     Route::get('/events/index', [EventController::class, 'index'])->name('events.index');
-    Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
-    Route::post('/events/{event}/register', [EventController::class, 'register'])->name('events.register');
+    Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+    Route::post('/events/register/{id}', [EventController::class, 'register'])->name('events.register');
 
 
 });

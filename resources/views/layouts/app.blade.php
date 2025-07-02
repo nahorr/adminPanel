@@ -34,7 +34,14 @@
         <div class="container">
           <div class="theme-header clearfix">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a href="{{ route('frontend.index') }}" class="navbar-brand"><img src="{{ asset('frontend/assets/img/logo.png') }}" alt=""></a>
+            <a href="{{ route('frontend.index') }}" class="navbar-brand">
+              @if(!empty($company?->logo))
+                <img src="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name ?? 'Company Logo' }}">
+              @else
+                <img src="{{ asset('frontend/assets/img/logo.png') }}" alt="Default Logo">
+              @endif
+            </a>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lni-menu"></i>
             </button>
@@ -96,7 +103,7 @@
                       {{ Str::limit($nextEvent->description, 180) }}
                   </p>
                   <div class="banner-btn">
-                      <a href="#" class="btn btn-common">Register</a>
+                      <a href="{{ route('frontend.events.show', $nextEvent->id) }}" class="btn btn-common">Register</a>
                   </div>
                 @else
                     <p class="banner-info">No upcoming events at the moment.</p>

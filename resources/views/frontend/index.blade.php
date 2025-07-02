@@ -69,7 +69,7 @@
   
         @if($upcomingEvents->isNotEmpty())
           <div class="col-12 text-center mt-3">
-            <a href="#" class="btn btn-common">View all Events</a>
+            <a href="{{ route('frontend.events.index') }}" class="btn btn-common">View all Events</a>
           </div>
         @endif
       </div>
@@ -94,123 +94,132 @@
   <!-- Video Section End -->
 
   <!-- Information Bar Start -->
+  @if($nextEvent)
   <section id="information-bar">
     <div class="container">
       <div class="row inforation-wrapper">
         <div class="col-lg-3 col-md-6 col-xs-12">
           <ul>
+            <li><i class="lni-map-marker"></i></li>
             <li>
-              <i class="lni-map-marker"></i>
+              <span><b>Location</b> {{ Str::limit($nextEvent->location ?? 'TBA', 22, '') }}</span>
             </li>
-            <li><span><b>Location</b> Maria Hall, NY, USA</span></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12">
           <ul>
+            <li><i class="lni-calendar"></i></li>
             <li>
-              <i class="lni-calendar"></i>
+              <span>
+                <b>Date & Time</b>
+                {{ \Carbon\Carbon::parse($nextEvent->start_time)->format('g:i A') }} -
+                {{ \Carbon\Carbon::parse($nextEvent->end_time)->format('g:i A') }},
+                {{ \Carbon\Carbon::parse($nextEvent->start_time)->format('jS M, Y') }}
+              </span>
             </li>
-            <li><span><b>Date & Time</b> 10am - 7pm, 15th Oct</span></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12">
           <ul>
+            <li><i class="lni-mic"></i></li>
             <li>
-              <i class="lni-mic"></i>
+              <span><b>Speakers</b> {{ $nextEvent->speakers ?? 'TBA' }}</span>
             </li>
-            <li><span><b>Speakers</b> 25 Professionals</span></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-xs-12">
           <ul>
+            <li><i class="lni-user"></i></li>
             <li>
-              <i class="lni-user"></i>
+              <span><b>Seats</b> {{ $nextEvent->capacity ?? 'Unlimited' }} People</span>
             </li>
-            <li><span><b>Seats</b> 100 People</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
+  @endif
   <!-- Information Bar End -->
 
-   <!-- intro Section Start -->
-  <section id="intro" class="intro section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="section-title-header text-center">
-            <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Why You Join?</h2>
-            <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row intro-wrapper">
-        <div class="col-lg-4 col-md-6 col-xs-12">
-          <div class="single-intro-text mb-70">
-             <i class="lni-microphone"></i>
-             <h3>Great Speakers</h3>
-             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus mollitia, excepturi.
-             </p>
-             <span class="count-number">01</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-xs-12">
-          <div class="single-intro-text">
-             <i class="lni-users"></i>
-             <h3 class="ts-title">New People</h3>
-             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus mollitia, excepturi.
-             </p>
-             <span class="count-number">02</span>
-          </div>
-          <div class="border-shap left"></div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-xs-12">
-          <div class="single-intro-text mb-70">
-             <i class="lni-bullhorn"></i>
-             <h3>Global Event</h3>
-             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus mollitia, excepturi.
-             </p>
-             <span class="count-number">03</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-xs-12">
-          <div class="single-intro-text mb-70">
-             <i class="lni-heart"></i>
-             <h3>Get Inspired</h3>
-             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus mollitia, excepturi.
-             </p>
-             <span class="count-number">04</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-xs-12">
-          <div class="single-intro-text mb-70">
-             <i class="lni-cup"></i>
-             <h3>Networking Session</h3>
-             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus mollitia, excepturi.
-             </p>
-             <span class="count-number">05</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-xs-12">
-          <div class="single-intro-text mb-70">
-             <i class="lni-gallery"></i>
-             <h3>Meet New Faces</h3>
-             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus mollitia, excepturi.
-             </p>
-             <span class="count-number">06</span>
-          </div>
+
+  <!-- intro Section Start -->
+<section id="intro" class="intro section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title-header text-center">
+          <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Why You Should Join</h2>
+          <p class="wow fadeInDown" data-wow-delay="0.2s">Join the experience — connect with thought leaders, sharpen your skills, and grow your network.</p>
         </div>
       </div>
     </div>
-  </section>
-  <!-- intro Section End -->
+    <div class="row intro-wrapper">
+      <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="single-intro-text mb-70">
+          <i class="lni-microphone"></i>
+          <h3>Top-Tier Speakers</h3>
+          <p>
+            Learn directly from leading professionals shaping the future of tech and innovation.
+          </p>
+          <span class="count-number">01</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="single-intro-text">
+          <i class="lni-users"></i>
+          <h3 class="ts-title">Connect & Collaborate</h3>
+          <p>
+            Meet fellow attendees, find mentors, or spark a new partnership that elevates your journey.
+          </p>
+          <span class="count-number">02</span>
+        </div>
+        <div class="border-shap left"></div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="single-intro-text mb-70">
+          <i class="lni-bullhorn"></i>
+          <h3>Worldwide Reach</h3>
+          <p>
+            Engage with a global audience and discover trends and insights beyond your local scene.
+          </p>
+          <span class="count-number">03</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="single-intro-text mb-70">
+          <i class="lni-heart"></i>
+          <h3>Motivation & Energy</h3>
+          <p>
+            Leave energized and motivated, armed with fresh ideas and bold perspectives.
+          </p>
+          <span class="count-number">04</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="single-intro-text mb-70">
+          <i class="lni-cup"></i>
+          <h3>Interactive Sessions</h3>
+          <p>
+            Join panel talks, fireside chats, and Q&A sessions with experts across industries.
+          </p>
+          <span class="count-number">05</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="single-intro-text mb-70">
+          <i class="lni-gallery"></i>
+          <h3>Incredible Moments</h3>
+          <p>
+            Enjoy live experiences, exhibits, and entertainment designed to delight and inspire.
+          </p>
+          <span class="count-number">06</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- intro Section End -->
+
 
   <!-- Counter Area Start-->
   <section class="counter-section section-padding">
@@ -269,122 +278,43 @@
   </section>
   <!-- Counter Area End-->
 
-  <!-- Gallary Section Start -->
-  <section id="gallery" class="section-padding">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="section-title-header text-center">
-            <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Event Gallery</h2>
-            <p class="wow fadeInDown" data-wow-delay="0.2s">Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an <br> cule dicta iriure at phaedrum.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-1.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-1.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="ccol-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-2.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-2.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="ccol-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-3.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-3.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="ccol-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-4.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-4.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="ccol-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-5.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-5.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="ccol-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-6.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-6.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="ccol-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-7.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-7.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="ccol-md-6 col-sm-6 col-lg-3">
-          <div class="gallery-box">
-            <div class="img-thumb">
-              <img class="img-fluid" src="{{ asset('frontend/assets/img/gallery/img-8.jpg') }}" alt="">
-            </div>
-            <div class="overlay-box text-center">
-              <a class="lightbox" href="{{ asset('frontend/assets/img/gallery/img-8.jpg') }}">
-                <i class="lni-plus"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center mt-3">
-        <div class="col-xs-12">
-          <a href="#" class="btn btn-common">Browse All</a>
+  <!-- Gallery Section Start -->
+<section id="gallery" class="section-padding">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title-header text-center">
+          <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Event Gallery</h2>
+          <p class="wow fadeInDown" data-wow-delay="0.2s">
+            Check out highlights from our past events.
+          </p>
         </div>
       </div>
     </div>
-  </section>
-  <!-- Gallary Section End -->
+    <div class="row">
+      @foreach($eventImages as $image)
+      <div class="col-md-6 col-sm-6 col-lg-3">
+        <div class="gallery-box">
+          <div class="img-thumb">
+            <img class="img-fluid" src="{{ asset('storage/' . $image->image_path) }}" alt="">
+          </div>
+          <div class="overlay-box text-center">
+            <a class="lightbox" href="{{ asset('storage/' . $image->image_path) }}">
+              <i class="lni-plus"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      @endforeach
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-xs-12">
+        <a href="{{ route('frontend.gallery') }}" class="btn btn-common">Browse All</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Gallery Section End -->
+
 
 @endsection

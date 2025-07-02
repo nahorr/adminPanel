@@ -7,6 +7,7 @@
     <div class="row">
       <!-- Main Content -->
       <div class="col-lg-8 col-md-12 col-xs-12">
+            @include('alert-messages')
         <div class="blog-post single-gallery">
           <!-- Feature Image -->
           <div class="feature-inner">
@@ -36,7 +37,7 @@
 
             <!-- Registration CTA -->
             <div class="mt-4">
-                <button type="button" class="btn btn-common" data-bs-toggle="modal" data-bs-target="#registerModal">
+                <button type="button" class="btn btn-common" data-bs-toggle="modal" data-bs-target="#registerModal{{$event->id}}">
                 Register Now
                 </button>
             </div>
@@ -53,27 +54,27 @@
             <div class="widget">
                 <h5 class="widget-title">Upcoming Events</h5>
                 <div id="post-carousel" class="post-slide">
-                    @forelse($upcomingEvents as $event)
+                    @forelse($upcomingEvents as $upcomingEvent)
                         <div class="item">
-                            <a class="lightbox" href="{{ asset('storage/' . $event->banner_image) }}">
-                                <img src="{{ asset('storage/' . $event->banner_image) }}" alt="{{ $event->title }}">
+                            <a class="lightbox" href="{{ asset('storage/' . $upcomingEvent->banner_image) }}">
+                                <img src="{{ asset('storage/' . $upcomingEvent->banner_image) }}" alt="{{ $upcomingEvent->title }}">
                             </a>
                             <div class="post-content">  
                                 <div class="meta">
                                     <span class="meta-part">
                                         <i class="lni-calendar"></i> 
-                                        {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y') }}
+                                        {{ \Carbon\Carbon::parse($upcomingEvent->start_time)->format('F d, Y') }}
                                     </span>
                                     <span class="meta-part">
-                                        <i class="lni-ticket-alt"></i> {{ ucfirst($event->event_type) }}
+                                        <i class="lni-ticket-alt"></i> {{ ucfirst($upcomingEvent->event_type) }}
                                     </span>
                                 </div>                 
                                 <h3>
-                                    <a href="{{ route('frontend.events.show', $event->id) }}">
-                                        {{ Str::limit($event->title, 60) }}
+                                    <a href="{{ route('frontend.events.show', $upcomingEvent->id) }}">
+                                        {{ Str::limit($upcomingEvent->title, 60) }}
                                     </a>
                                 </h3>
-                                <p>{{ Str::limit(strip_tags($event->description), 100) }}</p>
+                                <p>{{ Str::limit(strip_tags($upcomingEvent->description), 100) }}</p>
                             </div>
                         </div>
                     @empty
@@ -90,43 +91,39 @@
 <!-- End Content -->
 
 <!-- Registration Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+<div class="modal fade" id="registerModal{{$event->id}}" tabindex="-1" aria-labelledby="registerModalLabel{{$event->id}}" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="{{ route('frontend.events.register', $event->id) }}" method="POST">
+        <form method="POST" action="{{ route('frontend.events.register', $event->id) }}">
           @csrf
           <div class="modal-header">
-            <h5 class="modal-title" id="registerModalLabel">Register for {{ $event->title }}</h5>
+            <h5 class="modal-title" id="registerModalLabel{{$event->id}}">Register for {{ $event->title }}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            @if(session('success'))
-              <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
-  
+            <!-- Registration Fields -->
             <div class="mb-3">
-              <label for="name" class="form-label">Your Name</label>
+              <label for="name{{$event->id}}" class="form-label">Name</label>
               <input type="text" class="form-control" name="name" required>
             </div>
-  
             <div class="mb-3">
-              <label for="email" class="form-label">Email Address</label>
+              <label for="email{{$event->id}}" class="form-label">Email</label>
               <input type="email" class="form-control" name="email" required>
             </div>
-  
             <div class="mb-3">
-              <label for="phone" class="form-label">Phone (optional)</label>
+              <label for="phone{{$event->id}}" class="form-label">Phone</label>
               <input type="text" class="form-control" name="phone">
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit Registration</button>
+            <button type="submit" class="btn btn-common">Submit</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           </div>
         </form>
       </div>
     </div>
   </div>
+  
   
 
 @endsection

@@ -6,7 +6,9 @@ use Illuminate\View\View;
 use App\Models\Social;
 use App\Models\CompanyInfo;
 use App\Models\Event;
+use App\Models\Gallery;
 use Carbon\Carbon;
+use App\Models\Service;
 
 class GlobalViewComposer
 {
@@ -21,6 +23,8 @@ class GlobalViewComposer
             'socialLinks' => Social::where('is_active', true)->get(),
             'company' => CompanyInfo::first(),
             'nextEvent' => $nextEvent,
+            'eventImages' => Gallery::take(8)->get(),
+            'services' => Service::where('status','active')->get(),
         ]);
     }
 }
