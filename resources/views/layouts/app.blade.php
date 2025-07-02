@@ -190,7 +190,10 @@
               </ul>
             </div>
             <div class="site-info">
-              <p>By <a href="#" rel="nofollow">Nahorr Analytics and Software Solutions</a></p>
+              <p>
+                &copy; <a href="{{ route('frontend.index') }}" rel="nofollow">VicTopMan</a> {{ date('Y') }}
+              </p>
+              
             </div>
           </div>
         </div>
