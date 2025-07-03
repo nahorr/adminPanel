@@ -14,11 +14,17 @@ class GlobalViewComposer
 {
     public function compose(View $view)
     {
-        //Get the nearest upcomming event
+        // Get the nearest upcoming event, or the latest past event if none upcoming
         $nextEvent = Event::where('start_time', '>', Carbon::now())
-                  ->orderBy('start_time')
-                  ->first();
+        ->orderBy('start_time')
+        ->first();
 
+        if (!$nextEvent) {
+        $nextEvent = Event::where('start_time', '<=', Carbon::now())
+            ->orderBy('start_time', 'desc')
+            ->first();
+        }
+        
         $view->with([
             'socialLinks' => Social::where('is_active', true)->get(),
             'company' => CompanyInfo::first(),
