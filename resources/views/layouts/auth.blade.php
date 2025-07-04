@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login - Mazer Admin Dashboard</title>
+        <title>Login - {{ $company->name ?? ''}} Admin Dashboard</title>
         <link rel="shortcut icon" href="{{ asset('backend/assets/compiled/svg/favicon.svg') }}" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('backend/assets/compiled/css/app-dark.css') }}">
@@ -22,7 +22,10 @@
                     @endif
                     <div id="auth-left">
                         <div class="auth-logo">
-                            <a href="index.html"><img src="{{ asset('backend/assets/compiled/svg/logo.svg') }}" alt="Logo"></a>
+                            <a href="{{ route('frontend.index') }}">
+                                <img src="{{ $company && $company->logo ? Storage::url($company->logo) : asset('backend/assets/compiled/svg/logo.svg') }}"
+                                alt="{{ $company->name ?? '' }}">
+                            </a>
                         </div>
 
                         @if (Route::is('login'))
