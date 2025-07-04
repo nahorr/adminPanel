@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Admin Dashboard</title>
+    <title>{{ $company->name ?? ''}} - Admin Dashboard</title>
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/compiled/svg/favicon.svg') }}" type="image/x-icon">
 
@@ -158,12 +158,12 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>{{ date('Y') }} &copy; Nahorr</p>
+                        <p>{{ date('Y') }} &copy; {{ $company->name ?? ''}}</p>
                     </div>
-                    <div class="float-end">
-                        <p>Developed with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
+                    {{-- <div class="float-end">
+                        <p><span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
                             by <a href="https://saugi.me">Nahorr</a></p>
-                    </div>
+                    </div> --}}
                 </div>
             </footer>
         </div>
