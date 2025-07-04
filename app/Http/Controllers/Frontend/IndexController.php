@@ -16,7 +16,9 @@ class IndexController extends Controller
         ->take(3)
         ->get();
 
-        return view('frontend.index', compact('upcomingEvents'));
+        $pastEvents = Event::where('start_time', '<', now())->orderByDesc('start_time')->take(3)->get();
+
+        return view('frontend.index', compact('upcomingEvents','pastEvents'));
     }
 
     public function aboutUs()

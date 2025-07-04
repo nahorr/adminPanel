@@ -23,49 +23,97 @@
       <div class="row">
         <div class="col-12">
           <div class="section-title-header text-center">
-            <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Upcoming Events</h2>
-            <p class="wow fadeInDown" data-wow-delay="0.2s">
-              Stay updated with our latest events and activities.
-            </p>
-          </div>
+            @if($upcomingEvents->isNotEmpty())
+                <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Upcoming Events</h2>
+                <p class="wow fadeInDown" data-wow-delay="0.2s">
+                    Stay updated with our latest events and activities.
+                </p>
+            @elseif($pastEvents->isNotEmpty())
+                <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Recent Events</h2>
+                <p class="wow fadeInDown" data-wow-delay="0.2s">
+                    Here's a look back at some of our recent events and highlights.
+                </p>
+            @else
+                <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Events</h2>
+                <p class="wow fadeInDown" data-wow-delay="0.2s">
+                    Check back soon for upcoming activities and updates.
+                </p>
+            @endif
+        </div>
+        
         </div>
       </div>
   
       <div class="row">
-        @forelse($upcomingEvents as $event)
-          <div class="col-lg-4 col-md-6 col-xs-12">
-            <div class="blog-item">
-              <div class="blog-image">
-                <a href="{{  route('frontend.events.show', $event->id) }}">
-                  <img class="img-fluid" src="{{ $event->banner_image ? asset('storage/' . $event->banner_image) : asset('frontend/assets/img/blog/default.jpg') }}" alt="{{ $event->title }}">
-                </a>
-              </div>
-              <div class="descr">
-                <div class="icon">
-                  <i class="lni-calendar"></i>
+        @if($upcomingEvents->isNotEmpty())
+            @foreach($upcomingEvents as $event)
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="blog-item">
+                        <div class="blog-image">
+                            <a href="{{ route('frontend.events.show', $event->id) }}">
+                                <img class="img-fluid" src="{{ $event->banner_image ? asset('storage/' . $event->banner_image) : asset('frontend/assets/img/blog/default.jpg') }}" alt="{{ $event->title }}">
+                            </a>
+                        </div>
+                        <div class="descr">
+                            <div class="icon">
+                                <i class="lni-calendar"></i>
+                            </div>
+                            <h3 class="title">
+                                <a href="{{ route('frontend.events.show', $event->id) }}">{{ $event->title }}</a>
+                            </h3>
+                            <p>{{ Str::limit($event->description, 100) }}</p>
+                        </div>
+                        <div class="meta-tags">
+                            <span class="date">
+                                <i class="lni-calendar"></i>
+                                {{ \Carbon\Carbon::parse($event->start_time)->format('M d, Y') }}
+                            </span>
+                            <span class="comments">
+                                <i class="lni-map-marker"></i>
+                                {{ $event->location }}
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="title">
-                  <a href="#">{{ $event->title }}</a>
-                </h3>
-                <p>{{ Str::limit($event->description, 100) }}</p>
-              </div>
-              <div class="meta-tags">
-                <span class="date">
-                  <i class="lni-calendar"></i>
-                  {{ \Carbon\Carbon::parse($event->start_time)->format('M d, Y') }}
-                </span>
-                <span class="comments">
-                  <i class="lni-map-marker"></i>
-                  {{ $event->location }}
-                </span>
-              </div>
+            @endforeach
+        @elseif($pastEvents->isNotEmpty())
+            @foreach($pastEvents as $event)
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="blog-item">
+                        <div class="blog-image">
+                            <a href="{{ route('frontend.events.show', $event->id) }}">
+                                <img class="img-fluid" src="{{ $event->banner_image ? asset('storage/' . $event->banner_image) : asset('frontend/assets/img/blog/default.jpg') }}" alt="{{ $event->title }}">
+                            </a>
+                        </div>
+                        <div class="descr">
+                            <div class="icon">
+                                <i class="lni-calendar"></i>
+                            </div>
+                            <h3 class="title">
+                                <a href="{{ route('frontend.events.show', $event->id) }}">{{ $event->title }}</a>
+                            </h3>
+                            <p>{{ Str::limit($event->description, 100) }}</p>
+                        </div>
+                        <div class="meta-tags">
+                            <span class="date">
+                                <i class="lni-calendar"></i>
+                                {{ \Carbon\Carbon::parse($event->start_time)->format('M d, Y') }}
+                            </span>
+                            <span class="comments">
+                                <i class="lni-map-marker"></i>
+                                {{ $event->location }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="col-12 text-center">
+                <p class="text-muted">No events to display at this time.</p>
             </div>
-          </div>
-        @empty
-          <div class="col-12 text-center">
-            <p class="text-muted">No upcoming events at the moment.</p>
-          </div>
-        @endforelse
+        @endif
+    </div>
+    
   
         @if($upcomingEvents->isNotEmpty())
           <div class="col-12 text-center mt-3">
