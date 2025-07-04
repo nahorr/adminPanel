@@ -89,9 +89,9 @@
           <div class="row justify-content-center">
             <div class="col-lg-9 col-sm-12">
               <div class="contents text-center">
-                <div class="icon">
+                {{-- <div class="icon">
                   <i class="lni-mic"></i>
-                </div>
+                </div> --}}
                 @if($nextEvent)
                   <p class="banner-info">
                       {{ \Carbon\Carbon::parse($nextEvent->start_time)->format('d, M Y') }}
