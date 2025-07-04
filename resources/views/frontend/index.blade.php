@@ -69,7 +69,7 @@
   
         @if($upcomingEvents->isNotEmpty())
           <div class="col-12 text-center mt-3">
-            <a href="{{ route('frontend.events.index') }}" class="btn btn-common">View all Events</a>
+            <a href="{{ route('frontend.events') }}" class="btn btn-common">View all Events</a>
           </div>
         @endif
       </div>

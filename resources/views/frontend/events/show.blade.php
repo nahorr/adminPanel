@@ -37,10 +37,15 @@
 
             <!-- Registration CTA -->
             <div class="mt-4">
-                <button type="button" class="btn btn-common" data-bs-toggle="modal" data-bs-target="#registerModal{{$event->id}}">
-                Register Now
-                </button>
+              @if($event->start_time > now())
+                  <button type="button" class="btn btn-common" data-bs-toggle="modal" data-bs-target="#registerModal{{ $event->id }}">
+                      Register Now
+                  </button>
+              @else
+                  <span class="badge bg-secondary">Event Completed</span>
+              @endif
             </div>
+
   
 
           </div>

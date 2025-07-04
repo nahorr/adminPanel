@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="nav-item {{ Route::is('frontend.events') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('frontend.events.index') }}">
+                        <a class="nav-link" href="{{ route('frontend.events') }}">
                             Events
                         </a>
                     </li>
@@ -77,7 +77,7 @@
             </div>
           </div>
         </div>
-        <div class="mobile-menu" data-logo="{{ asset('frontend/assets/img/logo.png') }}"></div>
+        <div class="mobile-menu" data-logo="{{ asset('storage/' . $company->logo) }}" alt="{{ $company->name ?? 'Company Logo' }}"></div>
       </nav>
       <!-- Navbar End -->
 
@@ -103,7 +103,9 @@
                       {{ Str::limit($nextEvent->description, 180) }}
                   </p>
                   <div class="banner-btn">
-                      <a href="{{ route('frontend.events.show', $nextEvent->id) }}" class="btn btn-common">Register</a>
+                      <a href="{{ route('frontend.events.show', $nextEvent->id) }}" class="btn btn-common">
+                        Event Details
+                      </a>
                   </div>
                 @else
                     <p class="banner-info">No upcoming events at the moment.</p>
@@ -120,32 +122,39 @@
     <!-- Header Area wrapper End -->
 
     @if (!Route::is('frontend.index'))
-    <!-- Page Header Start other pages-->
-    @php
-        $routeName = str_replace('frontend.', '', Route::currentRouteName());
-        $routeTitle = ucwords(str_replace('.', ' ', $routeName));
-    @endphp
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-            <div class="col-12">
-                <div class="page-header-inner text-center">
-                    <h1 class="page-title">
-                        {{ $routeTitle }}
-                    </h1>
-                <ul>
-                    <li>
-                        <a class="active" href="{{ route('frontend.index') }}">Home</a>
-                    </li>
-                    <li>{{ $routeTitle }}</li>
-                </ul>
+        @php
+            $routeName = str_replace('frontend.', '', Route::currentRouteName());
+
+            if (Str::endsWith($routeName, '.show') && isset($event)) {
+                $routeTitle = $event->title;
+            } else {
+                $routeTitle = ucwords(str_replace('.', ' ', $routeName));
+            }
+        @endphp
+
+        <!-- Page Header Start other pages-->
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-header-inner text-center">
+                            <h1 class="page-title">
+                                {{ $routeTitle }}
+                            </h1>
+                            {{-- <ul>
+                                <li>
+                                    <a class="active" href="{{ route('frontend.index') }}">Home</a>
+                                </li>
+                                <li>{{ $routeTitle }}</li>
+                            </ul> --}}
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
         </div>
-    </div>
-    <!-- Page Header End other pages-->
+        <!-- Page Header End other pages-->
     @endif
+
 
     @yield('content')
 

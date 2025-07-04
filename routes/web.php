@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     Route::post('/subscribe/store', [SubscriptionController::class, 'store'])->name('subscribe.store');
 
     //Events
-    Route::get('/events/index', [EventController::class, 'index'])->name('events.index');
+    Route::get('/events/index', [EventController::class, 'index'])->name('events');
     Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
     Route::post('/events/register/{id}', [EventController::class, 'register'])->name('events.register');
 
