@@ -39,6 +39,7 @@ Auth::routes();
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\CompanyInfoController;
 use App\Http\Controllers\Backend\AboutUsController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\EventController as AdminEventController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\ServiceController;
@@ -60,13 +61,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['a
     Route::post('/about-us/store', [AboutUsController::class, 'store'])->name('about.us.store');
     Route::put('/about-us/update/{id}', [AboutUsController::class, 'update'])->name('about.us.update');
 
+    //Team
+    Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+    Route::get('team/create', [TeamController::class, 'create'])->name('team.create');
+    Route::post('/team/store', [TeamController::class, 'store'])->name('team.store');
+    Route::get('team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
+    Route::put('/team/update/{id}', [TeamController::class, 'update'])->name('team.update');
+    Route::delete('/team/delete/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+
     //Events
     Route::get('/events', [AdminEventController::class, 'index'])->name('events.index');
     Route::get('event/create', [AdminEventController::class, 'create'])->name('event.create');
     Route::post('/event/store', [AdminEventController::class, 'store'])->name('event.store');
     Route::get('event/edit/{id}', [AdminEventController::class, 'edit'])->name('event.edit');
     Route::put('/event/update/{id}', [AdminEventController::class, 'update'])->name('event.update');
-    Route::delete('/company/delete/{id}', [AdminEventController::class, 'destroy'])->name('event.destroy');
+    Route::delete('/event/delete/{id}', [AdminEventController::class, 'destroy'])->name('event.destroy');
 
     //Gallary
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');

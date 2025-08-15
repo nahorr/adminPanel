@@ -126,6 +126,9 @@
                                 <a href="{{ route('admin.company.index') }}" class="submenu-link">Company Info</a>
                             </li>
                             <li class="submenu-item  ">
+                                <a href="{{ route('admin.team.index') }}" class="submenu-link">Team</a>
+                            </li>
+                            <li class="submenu-item  ">
                                 <a href="{{ route('admin.socials.index') }}" class="submenu-link">Socials</a>
                             </li>
                         </ul>
