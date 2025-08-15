@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CompanyInfo;
 use App\Models\AboutUs;
+use App\Models\Team;
 use Illuminate\Support\Facades\Storage;
 
 class AboutUsController extends Controller

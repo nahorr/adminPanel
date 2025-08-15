@@ -6,6 +6,7 @@ use App\Models\Event;
 use Carbon\Carbon;
 use App\Models\Gallery;
 use App\Models\AboutUs;
+use App\Models\Team;
 
 class IndexController extends Controller
 {
@@ -25,13 +26,9 @@ class IndexController extends Controller
     {
         $about_us = AboutUs::first();
 
-        $teamMembers = collect();
+        $teams = Team::all();
 
-        if ($about_us && $about_us->team_images) {
-            $teamMembers = collect(json_decode($about_us->team_images, true));
-        }
-
-        return view('frontend.about-us', compact('about_us', 'teamMembers'));
+        return view('frontend.about-us', compact('about_us', 'teams'));
     }
 
     public function gallery()

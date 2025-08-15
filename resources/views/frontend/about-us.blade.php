@@ -109,38 +109,50 @@
         </div>
       </div>
       <div class="row justify-content-bt">
-        @foreach($teamMembers as $index => $member)
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="team-item wow fadeInUp" data-wow-delay="{{ 0.2 + ($index * 0.2) }}s">
-              <div class="team-img">
-                <img class="img-fluid" src="{{ asset('storage/' . $member) }}" alt="{{ $member }}">
+        @foreach($teams as $index => $team)
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="team-item wow fadeInUp" data-wow-delay="{{ number_format(0.2 + ($index * 0.2), 1) }}s">
+      <div class="team-img">
+        <img
+          class="img-fluid"
+          src="{{ $team->image_url ?? ($team->image_path ? asset('storage/'.$team->image_path) : asset('images/avatar-placeholder.png')) }}"
+          alt="{{ $team->name }}">
 
-                <div class="team-overlay">
-                  <div class="overlay-social-icon text-center">
-                    <ul class="social-icons">
-                      @if(!empty($member['socials']['twitter']))
-                        <li><a href="{{ $member['socials']['twitter'] }}"><i class="lni-twitter-filled"></i></a></li>
-                      @endif
-                      @if(!empty($member['socials']['google']))
-                        <li><a href="{{ $member['socials']['google'] }}"><i class="lni-google"></i></a></li>
-                      @endif
-                      @if(!empty($member['socials']['facebook']))
-                        <li><a href="{{ $member['socials']['facebook'] }}"><i class="lni-facebook-filled"></i></a></li>
-                      @endif
-                      @if(!empty($member['socials']['pinterest']))
-                        <li><a href="{{ $member['socials']['pinterest'] }}"><i class="lni-pinterest"></i></a></li>
-                      @endif
-                    </ul>
-                  </div>
-                </div>
+        <div class="team-overlay">
+          <div class="overlay-social-icon text-center">
+            <ul class="social-icons">
+              {{-- Optional socials if you add these columns to Team --}}
+              @if(!empty($team->twitter_url))
+                <li><a href="{{ $team->twitter_url }}" target="_blank" rel="noopener"><i class="lni-twitter-filled"></i></a></li>
+              @endif
+              @if(!empty($team->google_url))
+                <li><a href="{{ $team->google_url }}" target="_blank" rel="noopener"><i class="lni-google"></i></a></li>
+              @endif
+              @if(!empty($team->facebook_url))
+                <li><a href="{{ $team->facebook_url }}" target="_blank" rel="noopener"><i class="lni-facebook-filled"></i></a></li>
+              @endif
+              @if(!empty($team->pinterest_url))
+                <li><a href="{{ $team->pinterest_url }}" target="_blank" rel="noopener"><i class="lni-pinterest"></i></a></li>
+              @endif
+            </ul>
+            {{-- Or show a short bio in the overlay --}}
+            @if(!empty($team->about))
+              <div class="mt-2 small text-white px-3">
+                {{ \Illuminate\Support\Str::limit(strip_tags($team->about), 120) }}
               </div>
-              {{-- <div class="info-text">
-                <h3><a href="#">{{ $member['name'] }}</a></h3>
-                <p>{{ $member['role'] }}</p>
-              </div> --}}
-            </div>
+            @endif
           </div>
-        @endforeach
+        </div>
+      </div>
+
+      <div class="info-text">
+        <h3 class="mb-1"><a href="#">{{ $team->name }}</a></h3>
+        <p class="mb-0">{{ $team->position ?? '—' }}</p>
+      </div>
+    </div>
+  </div>
+@endforeach
+
       </div>
   
       {{-- <a href="{{ route('speakers.index') }}" class="btn btn-common mt-30 wow fadeInUp" data-wow-delay="1.9s">
