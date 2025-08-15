@@ -110,48 +110,48 @@
       </div>
       <div class="row justify-content-bt">
         @foreach($teams as $index => $team)
-  <div class="col-lg-3 col-md-6 col-xs-12">
-    <div class="team-item wow fadeInUp" data-wow-delay="{{ number_format(0.2 + ($index * 0.2), 1) }}s">
-      <div class="team-img">
-        <img
-          class="img-fluid"
-          src="{{ $team->image_url ?? ($team->image_path ? asset('storage/'.$team->image_path) : asset('images/avatar-placeholder.png')) }}"
-          alt="{{ $team->name }}">
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="team-item wow fadeInUp" data-wow-delay="{{ number_format(0.2 + ($index * 0.2), 1) }}s">
+              <div class="team-img">
+                <img
+                  class="img-fluid"
+                  src="{{ $team->image_url ?? ($team->image_path ? asset('storage/'.$team->image_path) : asset('images/avatar-placeholder.png')) }}"
+                  alt="{{ $team->name }}">
 
-        <div class="team-overlay">
-          <div class="overlay-social-icon text-center">
-            <ul class="social-icons">
-              {{-- Optional socials if you add these columns to Team --}}
-              @if(!empty($team->twitter_url))
-                <li><a href="{{ $team->twitter_url }}" target="_blank" rel="noopener"><i class="lni-twitter-filled"></i></a></li>
-              @endif
-              @if(!empty($team->google_url))
-                <li><a href="{{ $team->google_url }}" target="_blank" rel="noopener"><i class="lni-google"></i></a></li>
-              @endif
-              @if(!empty($team->facebook_url))
-                <li><a href="{{ $team->facebook_url }}" target="_blank" rel="noopener"><i class="lni-facebook-filled"></i></a></li>
-              @endif
-              @if(!empty($team->pinterest_url))
-                <li><a href="{{ $team->pinterest_url }}" target="_blank" rel="noopener"><i class="lni-pinterest"></i></a></li>
-              @endif
-            </ul>
-            {{-- Or show a short bio in the overlay --}}
-            @if(!empty($team->about))
-              <div class="mt-2 small text-white px-3">
-                {{ \Illuminate\Support\Str::limit(strip_tags($team->about), 120) }}
+                <div class="team-overlay">
+                  <div class="overlay-social-icon text-center">
+                    <ul class="social-icons">
+                      {{-- Optional socials if you add these columns to Team --}}
+                      @if(!empty($team->twitter_url))
+                        <li><a href="{{ $team->twitter_url }}" target="_blank" rel="noopener"><i class="lni-twitter-filled"></i></a></li>
+                      @endif
+                      @if(!empty($team->google_url))
+                        <li><a href="{{ $team->google_url }}" target="_blank" rel="noopener"><i class="lni-google"></i></a></li>
+                      @endif
+                      @if(!empty($team->facebook_url))
+                        <li><a href="{{ $team->facebook_url }}" target="_blank" rel="noopener"><i class="lni-facebook-filled"></i></a></li>
+                      @endif
+                      @if(!empty($team->pinterest_url))
+                        <li><a href="{{ $team->pinterest_url }}" target="_blank" rel="noopener"><i class="lni-pinterest"></i></a></li>
+                      @endif
+                    </ul>
+                    {{-- Or show a short bio in the overlay --}}
+                    @if(!empty($team->about))
+                      <div class="mt-2 small text-white px-3">
+                        {{ \Illuminate\Support\Str::limit(strip_tags($team->about), 120) }}
+                      </div>
+                    @endif
+                  </div>
+                </div>
               </div>
-            @endif
-          </div>
-        </div>
-      </div>
 
-      <div class="info-text">
-        <h3 class="mb-1"><a href="#">{{ $team->name }}</a></h3>
-        <p class="mb-0">{{ $team->position ?? '—' }}</p>
-      </div>
-    </div>
-  </div>
-@endforeach
+              <div class="info-text">
+                <h3 class="mb-1"><a href="#">{{ $team->name }}</a></h3>
+                <p class="mb-0">{{ $team->position ?? '—' }}</p>
+              </div>
+            </div>
+          </div>
+        @endforeach
 
       </div>
   
