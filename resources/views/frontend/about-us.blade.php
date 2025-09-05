@@ -19,18 +19,22 @@
           <div class="about-content">
             <div>
               <div class="about-text">
-                <h2>Welcome to {{ $company->name ?? 'Our Company' }}</h2>
+                {{-- <h2>Welcome to {{ $company->name ?? 'Our Company' }}</h2> --}}
                 <p>
-                  {{ $about_us->content ?? 'No Content Yet'}}
+                  {!! $about_us->content ?? 'No Content Yet' !!}
                 </p>
+                {{-- <p>
+                  {{ $about_us->mission ?? 'No Content Yet'}}
+                </p> --}}
               </div>
-              <ul class="stylish-list mb-3">
+              {{-- <ul class="stylish-list mb-3">
+                <h5>Our Services</h5>
                 @foreach($services as $service)
                 <li>
                   <i class="lni-check-mark-circle"></i>{{ $service->short_description }}
                 </li>
                 @endforeach
-              </ul>
+              </ul> --}}
             </div>
           </div>
         </div>

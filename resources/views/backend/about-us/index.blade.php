@@ -68,9 +68,12 @@
                                   <div class="col-md-4">
                                       <label for="values">Core Values</label>
                                   </div>
-                                  <div class="col-md-8 form-group">
-                                      <textarea id="values" class="form-control" name="values">{{ old('values', $about->values ?? '') }}</textarea>
-                                  </div>
+                                    <div class="col-md-8 form-group">
+                                        <textarea id="summernote-values" class="form-control rich-text" name="values" rows="5">
+                                            {{ old('values', $about->values ?? '') }}
+                                        </textarea>
+                                        @error('values')<small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
                       
                                   <div class="col-md-4">
                                       <label for="history">History</label>
@@ -82,9 +85,12 @@
                                   <div class="col-md-4">
                                       <label for="content">Page Content</label>
                                   </div>
-                                  <div class="col-md-8 form-group">
-                                      <textarea id="content" class="form-control" name="content" rows="6">{{ old('content', $about->content ?? '') }}</textarea>
-                                  </div>
+                                    <div class="col-md-8 form-group">
+                                        <textarea id="summernote-content" class="form-control rich-text" name="content" rows="5">
+                                            {{ old('content', $about->content ?? '') }}
+                                        </textarea>
+                                        @error('content')<small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
                       
                                   <div class="col-md-4">
                                       <label for="banner_image">Banner Image</label>
