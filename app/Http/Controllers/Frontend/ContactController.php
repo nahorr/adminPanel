@@ -26,7 +26,7 @@ class ContactController extends Controller
 
         $contact = Contact::create($data);
 
-        Notification::route('mail', 'admin@example.com') // Replace with your admin email
+        Notification::route('mail', 'info@victopman.com') // Replace with your admin email
             ->notify(new ContactFormSubmitted($contact));
 
         return back()->with('success', 'Your message has been sent successfully!');
