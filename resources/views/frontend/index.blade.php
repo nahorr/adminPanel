@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Count Bar Start -->
-<section id="count">
+{{-- <section id="count">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-10">
@@ -14,11 +14,11 @@
         </div>
       </div>
     </div>
-  </section>
+</section> --}}
   <!-- Count Bar End -->
 
   <!-- Blog Section Start -->
-  <section id="blog" class="section-padding">
+  {{-- <section id="blog" class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -40,10 +40,10 @@
                 </p>
             @endif
         </div>
-        
+
         </div>
       </div>
-  
+
       <div class="row">
         @if($upcomingEvents->isNotEmpty())
             @foreach($upcomingEvents as $event)
@@ -113,8 +113,8 @@
             </div>
         @endif
     </div>
-    
-  
+
+
         @if($upcomingEvents->isNotEmpty())
           <div class="col-12 text-center mt-3">
             <a href="{{ route('frontend.events') }}" class="btn btn-common">View all Events</a>
@@ -122,9 +122,53 @@
         @endif
       </div>
     </div>
-  </section>
-  
+  </section> --}}
   <!-- Blog Section End -->
+
+<!-- About Section Start -->
+<section id="about" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="img-thumb mx-auto" style="max-width:560px">
+                    @if(!empty($about_us->about_image))
+                        <img class="w-100 h-auto rounded shadow"
+                            src="{{ asset('storage/' . $about_us->banner_image) }}"
+                            alt="About Image">
+                    @else
+                        <img class="w-100 h-auto rounded shadow"
+                            src="{{ asset('frontend/assets/img/about/img1.png') }}"
+                            alt="Default About Image">
+                    @endif
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-xs-12">
+            <div class="about-content">
+                <div>
+                <div class="about-text">
+                    {{-- <h2>Welcome to {{ $company->name ?? 'Our Company' }}</h2> --}}
+                    <p>
+                    {!! $about_us->content ?? 'No Content Yet' !!}
+                    </p>
+                    {{-- <p>
+                    {{ $about_us->mission ?? 'No Content Yet'}}
+                    </p> --}}
+                </div>
+                {{-- <ul class="stylish-list mb-3">
+                    <h5>Our Services</h5>
+                    @foreach($services as $service)
+                    <li>
+                    <i class="lni-check-mark-circle"></i>{{ $service->short_description }}
+                    </li>
+                    @endforeach
+                </ul> --}}
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End -->
 
   <!-- Video Section Start -->
   <div class="ready-to-play">
@@ -142,7 +186,7 @@
   <!-- Video Section End -->
 
   <!-- Information Bar Start -->
-  @if($nextEvent)
+  {{-- @if($nextEvent)
   <section id="information-bar">
     <div class="container">
       <div class="row inforation-wrapper">
@@ -186,7 +230,7 @@
       </div>
     </div>
   </section>
-  @endif
+  @endif --}}
   <!-- Information Bar End -->
 
 
@@ -270,7 +314,7 @@
 
 
   <!-- Counter Area Start-->
-  <section class="counter-section section-padding">
+  {{-- <section class="counter-section section-padding">
     <div class="container">
       <div class="row">
         <!-- Counter Item -->
@@ -323,7 +367,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!-- Counter Area End-->
 
   <!-- Gallery Section Start -->

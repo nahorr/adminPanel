@@ -23,12 +23,17 @@
 // Init ALL Summernote editors that share the .rich-text class
 $('.rich-text').summernote({
   tabsize: 2,
-  height: 520,            // same height for both; change if you like
+  height: 520,
   toolbar: [
-    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['style', ['style']], // enables H1, H2, H3, etc.
+    ['font', ['bold', 'italic', 'underline', 'clear']],
     ['para', ['ul', 'ol', 'paragraph']],
     ['insert', ['link', 'picture']],
     ['view', ['fullscreen', 'codeview']]
+  ],
+  styleTags: [
+    'p', 'blockquote', 'pre',            // defaults
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6'  // add heading tags
   ]
 });
 

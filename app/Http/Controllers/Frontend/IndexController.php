@@ -19,7 +19,9 @@ class IndexController extends Controller
 
         $pastEvents = Event::where('start_time', '<', now())->orderByDesc('start_time')->take(3)->get();
 
-        return view('frontend.index', compact('upcomingEvents','pastEvents'));
+        $about_us = AboutUs::first();
+
+        return view('frontend.index', compact('upcomingEvents','pastEvents','about_us'));
     }
 
     public function aboutUs()
