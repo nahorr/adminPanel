@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CompanyInfo;
 use App\Models\AboutUs;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+
 
 class AboutUsController extends Controller
 {
@@ -84,10 +86,9 @@ class AboutUsController extends Controller
             'values' => 'nullable|string',
             'history' => 'nullable|string',
             'content' => 'nullable|string',
-            'banner_image' => 'nullable|image|max:10240',   // 10 MB
-            'about_image'  => 'nullable|image|max:10240',
-            'team_images.*' => 'nullable|image|max:10240',
-
+            'banner_image' => 'nullable|image|max:2048',
+            'about_image' => 'nullable|image|max:2048',
+            'team_images.*' => 'nullable|image|max:2048',
         ]);
     }
 
