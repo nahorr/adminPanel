@@ -133,7 +133,7 @@
                 <div class="img-thumb mx-auto" style="max-width:560px">
                     @if(!empty($about_us->about_image))
                         <img class="w-100 h-auto rounded shadow"
-                            src="{{ asset('storage/' . $about_us->banner_image) }}"
+                            src="{{ asset('storage/' . $about_us->about_image) }}"
                             alt="About Image">
                     @else
                         <img class="w-100 h-auto rounded shadow"

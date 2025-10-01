@@ -46,7 +46,7 @@ use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SocialController;
 use App\Http\Controllers\Backend\ContactController as AdminContactController;
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['auth','verified'], 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => ['auth','verified','is_admin'], 'as' => 'admin.'], function () {
 
     Route::get('/home', [HomeController::class, 'home'])->name('home');
 
