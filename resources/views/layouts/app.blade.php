@@ -72,11 +72,11 @@
                             Contact
                         </a>
                     </li>
-                    {{-- <li class="nav-item {{ Route::is('frontend.contact') ? 'active' : '' }}">
+                    <li class="nav-item {{ Route::is('frontend.contact') ? 'active' : '' }}">
                       <a class="nav-link" href="https://marakalliance.com" target="_blank">
                           Marakalliance
                       </a>
-                  </li> --}}
+                  </li>
                 </ul>
 
             </div>
